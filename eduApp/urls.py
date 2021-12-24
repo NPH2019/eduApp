@@ -16,9 +16,24 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-
+from django.conf import settings
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    path('', include('eduApp.frontend.urls')),
     path('admin/', admin.site.urls),
     path('dashboard/', include('eduApp.addons.dashboard.urls')),
 ]
+
+# Cấu hình Debug Toolbar Django
+if settings.DEBUG:
+    import debug_toolbar
+
+    # urlpatterns = [
+    #     path('__debug__/', include(debug_toolbar.urls)),
+    # ] + urlpatterns
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

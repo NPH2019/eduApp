@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eduApp.frontend.apps.IndexConfig',
     'graphene_django',
 ]
 
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'edu-app',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'PASSWORD': '3003',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
@@ -130,6 +131,15 @@ THOUSAND_SEPARATOR = ','
 DECIMAL_SEPARATOR = '.'
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Cấu hình file đa phương tiện
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Url mặc định sẽ truy cập nếu truy cập vào trang yêu cầu đăng nhập
 LOGIN_URL = '/login'

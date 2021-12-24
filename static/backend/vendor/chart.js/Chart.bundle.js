@@ -2189,10 +2189,10 @@ var helpers = {
 	},
 
 	/**
-	 * Returns value at the given `index` in array if defined, else returns `defaultValue`.
-	 * @param {Array} value - The array to lookup for value at `index`.
-	 * @param {number} index - The index in `value` to lookup for value.
-	 * @param {*} defaultValue - The value to return if `value[index]` is undefined.
+	 * Returns value at the given `frontend` in array if defined, else returns `defaultValue`.
+	 * @param {Array} value - The array to lookup for value at `frontend`.
+	 * @param {number} index - The frontend in `value` to lookup for value.
+	 * @param {*} defaultValue - The value to return if `value[frontend]` is undefined.
 	 * @returns {*}
 	 */
 	valueAtIndexOrDefault: function(value, index, defaultValue) {
@@ -3116,7 +3116,7 @@ var helpers_options = {
 	 * @param {object} [context] - If defined and the current value is a function, the value
 	 * is called with `context` as first argument and the result becomes the new input.
 	 * @param {number} [index] - If defined and the current value is an array, the value
-	 * at `index` become the new input.
+	 * at `frontend` become the new input.
 	 * @param {object} [info] - object to return information about resolution in
 	 * @param {boolean} [info.cacheable] - Will be set to `false` if option is not cacheable.
 	 * @since 2.7.0
@@ -3885,8 +3885,8 @@ helpers$1.extend(DatasetController.prototype, {
 
 	/**
 	 * Returns a set of predefined style properties that should be used to represent the dataset
-	 * or the data if the index is specified
-	 * @param {number} index - data index
+	 * or the data if the frontend is specified
+	 * @param {number} index - data frontend
 	 * @return {IStyleInterface} style object
 	 */
 	getStyle: function(index) {
@@ -4967,7 +4967,7 @@ var controller_bar = core_datasetController.extend({
 
 	/**
 	 * Returns the stacks based on groups and bar visibility.
-	 * @param {number} [last] - The dataset index
+	 * @param {number} [last] - The dataset frontend
 	 * @returns {string[]} The list of stack IDs
 	 * @private
 	 */
@@ -5008,10 +5008,10 @@ var controller_bar = core_datasetController.extend({
 	},
 
 	/**
-	 * Returns the stack index for the given dataset based on groups and bar visibility.
-	 * @param {number} [datasetIndex] - The dataset index
+	 * Returns the stack frontend for the given dataset based on groups and bar visibility.
+	 * @param {number} [datasetIndex] - The dataset frontend
 	 * @param {string} [name] - The stack name to find
-	 * @returns {number} The stack index
+	 * @returns {number} The stack frontend
 	 * @private
 	 */
 	getStackIndex: function(datasetIndex, name) {
@@ -5406,7 +5406,7 @@ core_defaults._set('doughnut', {
 
 			for (i = 0, ilen = (chart.data.datasets || []).length; i < ilen; ++i) {
 				meta = chart.getDatasetMeta(i);
-				// toggle visibility of index if exists
+				// toggle visibility of frontend if exists
 				if (meta.data[index]) {
 					meta.data[index].hidden = !meta.data[index].hidden;
 				}
@@ -5469,7 +5469,7 @@ var controller_doughnut = core_datasetController.extend({
 		'hoverBorderWidth',
 	],
 
-	// Get index of the dataset in relation to the visible datasets. This allows determining the inner and outer radius correctly
+	// Get frontend of the dataset in relation to the visible datasets. This allows determining the inner and outer radius correctly
 	getRingIndex: function(datasetIndex) {
 		var ringIndex = 0;
 
@@ -6810,7 +6810,7 @@ function getDistanceMetricForAxis(axis) {
 
 function indexMode(chart, e, options) {
 	var position = getRelativePosition(e, chart);
-	// Default axis for index mode is 'x' to match old behaviour
+	// Default axis for frontend mode is 'x' to match old behaviour
 	options.axis = options.axis || 'x';
 	var distanceMetric = getDistanceMetricForAxis(options.axis);
 	var items = options.intersect ? getIntersectItems(chart, position) : getNearestItems(chart, position, false, distanceMetric);
@@ -6871,9 +6871,9 @@ var core_interaction = {
 		label: indexMode,
 
 		/**
-		 * Returns items at the same index. If the options.intersect parameter is true, we only return items if we intersect something
-		 * If the options.intersect mode is false, we find the nearest item and return the items at the same index as that item
-		 * @function Chart.Interaction.modes.index
+		 * Returns items at the same frontend. If the options.intersect parameter is true, we only return items if we intersect something
+		 * If the options.intersect mode is false, we find the nearest item and return the items at the same frontend as that item
+		 * @function Chart.Interaction.modes.frontend
 		 * @since v2.4.0
 		 * @param {Chart} chart - the chart we are returning items from
 		 * @param {Event} e - the event we are find things at
@@ -6906,7 +6906,7 @@ var core_interaction = {
 
 		/**
 		 * @function Chart.Interaction.modes.x-axis
-		 * @deprecated since version 2.4.0. Use index mode and intersect == true
+		 * @deprecated since version 2.4.0. Use frontend mode and intersect == true
 		 * @todo remove at version 3
 		 * @private
 		 */
@@ -7407,7 +7407,7 @@ var platform_basic = {
 	}
 };
 
-var platform_dom = "/*\r\n * DOM element rendering detection\r\n * https://davidwalsh.name/detect-node-insertion\r\n */\r\n@keyframes chartjs-render-animation {\r\n\tfrom { opacity: 0.99; }\r\n\tto { opacity: 1; }\r\n}\r\n\r\n.chartjs-render-monitor {\r\n\tanimation: chartjs-render-animation 0.001s;\r\n}\r\n\r\n/*\r\n * DOM element resizing detection\r\n * https://github.com/marcj/css-element-queries\r\n */\r\n.chartjs-size-monitor,\r\n.chartjs-size-monitor-expand,\r\n.chartjs-size-monitor-shrink {\r\n\tposition: absolute;\r\n\tdirection: ltr;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\tvisibility: hidden;\r\n\tz-index: -1;\r\n}\r\n\r\n.chartjs-size-monitor-expand > div {\r\n\tposition: absolute;\r\n\twidth: 1000000px;\r\n\theight: 1000000px;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n\r\n.chartjs-size-monitor-shrink > div {\r\n\tposition: absolute;\r\n\twidth: 200%;\r\n\theight: 200%;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n";
+var platform_dom = "/*\r\n * DOM element rendering detection\r\n * https://davidwalsh.name/detect-node-insertion\r\n */\r\n@keyframes chartjs-render-animation {\r\n\tfrom { opacity: 0.99; }\r\n\tto { opacity: 1; }\r\n}\r\n\r\n.chartjs-render-monitor {\r\n\tanimation: chartjs-render-animation 0.001s;\r\n}\r\n\r\n/*\r\n * DOM element resizing detection\r\n * https://github.com/marcj/css-element-queries\r\n */\r\n.chartjs-size-monitor,\r\n.chartjs-size-monitor-expand,\r\n.chartjs-size-monitor-shrink {\r\n\tposition: absolute;\r\n\tdirection: ltr;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\tvisibility: hidden;\r\n\tz-frontend: -1;\r\n}\r\n\r\n.chartjs-size-monitor-expand > div {\r\n\tposition: absolute;\r\n\twidth: 1000000px;\r\n\theight: 1000000px;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n\r\n.chartjs-size-monitor-shrink > div {\r\n\tposition: absolute;\r\n\twidth: 200%;\r\n\theight: 200%;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n";
 
 var platform_dom$1 = /*#__PURE__*/Object.freeze({
 __proto__: null,
@@ -9745,7 +9745,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Updates dataset at index unless a plugin returns `false` to the `beforeDatasetUpdate`
+	 * Updates dataset at frontend unless a plugin returns `false` to the `beforeDatasetUpdate`
 	 * hook, in which case, plugins will not be called on `afterDatasetUpdate`.
 	 * @private
 	 */
@@ -9922,7 +9922,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Draws dataset at index unless a plugin returns `false` to the `beforeDatasetDraw`
+	 * Draws dataset at frontend unless a plugin returns `false` to the `beforeDatasetDraw`
 	 * hook, in which case, plugins will not be called on `afterDatasetDraw`.
 	 * @private
 	 */
@@ -9967,7 +9967,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 
 	/**
 	 * Get the single element that was clicked on
-	 * @return An object containing the dataset index and element index of the matching element. Also contains the rectangle that was draw
+	 * @return An object containing the dataset frontend and element frontend of the matching element. Also contains the rectangle that was draw
 	 */
 	getElementAtEvent: function(e) {
 		return core_interaction.modes.single(this, e);
@@ -11980,17 +11980,17 @@ var Scale = core_element.extend({
 	},
 
 	/**
-	 * Used to get the value to display in the tooltip for the data at the given index
-	 * @param index
+	 * Used to get the value to display in the tooltip for the data at the given frontend
+	 * @param frontend
 	 * @param datasetIndex
 	 */
 	getLabelForIndex: helpers$1.noop,
 
 	/**
-	 * Returns the location of the given data point. Value can either be an index or a numerical value
+	 * Returns the location of the given data point. Value can either be an frontend or a numerical value
 	 * The coordinate (0, 0) is at the upper-left corner of the canvas
 	 * @param value
-	 * @param index
+	 * @param frontend
 	 * @param datasetIndex
 	 */
 	getPixelForValue: helpers$1.noop,
@@ -12003,7 +12003,7 @@ var Scale = core_element.extend({
 	getValueForPixel: helpers$1.noop,
 
 	/**
-	 * Returns the location of the tick at the given index
+	 * Returns the location of the tick at the given frontend
 	 * The coordinate (0, 0) is at the upper-left corner of the canvas
 	 */
 	getPixelForTick: function(index) {
@@ -12200,7 +12200,7 @@ var Scale = core_element.extend({
 			}
 
 			if (i === me.zeroLineIndex && options.offset === offsetGridLines) {
-				// Draw the first index specially
+				// Draw the first frontend specially
 				lineWidth = gridLines.zeroLineWidth;
 				lineColor = gridLines.zeroLineColor;
 				borderDash = gridLines.zeroLineBorderDash || [];
@@ -12626,7 +12626,7 @@ var scale_category = core_scale.extend({
 		me._valueRange = Math.max(ticks.length - (offset ? 0 : 1), 1);
 	},
 
-	// Used to get data value locations.  Value can either be an index or a numerical value
+	// Used to get data value locations.  Value can either be an frontend or a numerical value
 	getPixelForValue: function(value, index, datasetIndex) {
 		var me = this;
 		var valueCategory, labels, idx;
@@ -12635,8 +12635,8 @@ var scale_category = core_scale.extend({
 			value = me.chart.data.datasets[datasetIndex].data[index];
 		}
 
-		// If value is a data object, then index is the index in the data array,
-		// not the index of the scale. We need to change that.
+		// If value is a data object, then frontend is the frontend in the data array,
+		// not the frontend of the scale. We need to change that.
 		if (!isNullOrUndef$1(value)) {
 			valueCategory = me.isHorizontal() ? value.x : value.y;
 		}
@@ -12670,7 +12670,7 @@ var scale_category = core_scale.extend({
 	}
 });
 
-// INTERNAL: static default options, registered in src/index.js
+// INTERNAL: static default options, registered in src/frontend.js
 var _defaults = defaultConfig;
 scale_category._defaults = _defaults;
 
@@ -13083,7 +13083,7 @@ var scale_linear = scale_linearbase.extend({
 	}
 });
 
-// INTERNAL: static default options, registered in src/index.js
+// INTERNAL: static default options, registered in src/frontend.js
 var _defaults$1 = defaultConfig$1;
 scale_linear._defaults = _defaults$1;
 
@@ -13386,7 +13386,7 @@ var scale_logarithmic = core_scale.extend({
 	}
 });
 
-// INTERNAL: static default options, registered in src/index.js
+// INTERNAL: static default options, registered in src/frontend.js
 var _defaults$2 = defaultConfig$2;
 scale_logarithmic._defaults = _defaults$2;
 
@@ -13499,11 +13499,11 @@ function fitWithPointLabels(scale) {
 	// Solution:
 	//
 	// We assume the radius of the polygon is half the size of the canvas at first
-	// at each index we check if the text overlaps.
+	// at each frontend we check if the text overlaps.
 	//
-	// Where it does, we store that angle and that index.
+	// Where it does, we store that angle and that frontend.
 	//
-	// After finding the largest index and angle we calculate how much we need to remove
+	// After finding the largest frontend and angle we calculate how much we need to remove
 	// from the shape radius to move the point inwards by that x.
 	//
 	// We average the left and right distances to get the maximum shape radius that can fit in the box
@@ -13657,7 +13657,7 @@ function drawRadiusLine(scale, gridLineOpts, radius, index) {
 		// Draw circular arcs between the points
 		ctx.arc(scale.xCenter, scale.yCenter, radius, 0, Math.PI * 2);
 	} else {
-		// Draw straight lines connecting each index
+		// Draw straight lines connecting each frontend
 		pointPosition = scale.getPointPosition(0, radius);
 		ctx.moveTo(pointPosition.x, pointPosition.y);
 
@@ -13939,7 +13939,7 @@ var scale_radialLinear = scale_linearbase.extend({
 	_drawTitle: helpers$1.noop
 });
 
-// INTERNAL: static default options, registered in src/index.js
+// INTERNAL: static default options, registered in src/frontend.js
 var _defaults$3 = defaultConfig$3;
 scale_radialLinear._defaults = _defaults$3;
 
@@ -14109,7 +14109,7 @@ function lookup(table, key, value) {
  * Linearly interpolates the given source `value` using the table items `skey` values and
  * returns the associated `tkey` value. For example, interpolate(table, 'time', 42, 'pos')
  * returns the position for a timestamp equal to 42. If value is out of bounds, values at
- * index [0, 1] or [n - 1, n] are used for the interpolation.
+ * frontend [0, 1] or [n - 1, n] are used for the interpolation.
  */
 function interpolate$1(table, skey, sval, tkey) {
 	var range = lookup(table, skey, sval);
@@ -14698,7 +14698,7 @@ var scale_time = core_scale.extend({
 	}
 });
 
-// INTERNAL: static default options, registered in src/index.js
+// INTERNAL: static default options, registered in src/frontend.js
 var _defaults$4 = defaultConfig$4;
 scale_time._defaults = _defaults$4;
 

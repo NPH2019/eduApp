@@ -104,7 +104,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.2): util/index.js
+   * Bootstrap (v5.0.2): util/frontend.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4991,7 +4991,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.2): index.umd.js
+   * Bootstrap (v5.0.2): frontend.umd.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */

@@ -6,4 +6,4 @@ from django.shortcuts import render
 @login_required
 @require_http_methods(["GET"])
 def index(request):
-    return render(request, 'dashboard/index.html')
+    return render(request, 'dashboard/frontend.html')
