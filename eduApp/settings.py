@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a)4!_)6^$#6$-6p2=e(#^4y-h46jdt^8w5ce^e$k25r@&z_oht
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.6']
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eduApp.frontend.apps.IndexConfig',
     'graphene_django',
 ]
 
@@ -130,6 +131,15 @@ THOUSAND_SEPARATOR = ','
 DECIMAL_SEPARATOR = '.'
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Cấu hình file đa phương tiện
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Url mặc định sẽ truy cập nếu truy cập vào trang yêu cầu đăng nhập
 LOGIN_URL = '/login'
