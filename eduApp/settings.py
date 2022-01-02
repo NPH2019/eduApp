@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eduApp.addons.apps.IndexConfig',
     'eduApp.frontend.apps.IndexConfig',
     'graphene_django',
 ]
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'edu-app',
         'USER': 'postgres',
-        'PASSWORD': '3003',
+        'PASSWORD': '1973',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
