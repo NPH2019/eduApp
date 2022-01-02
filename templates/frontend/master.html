@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>It.Next - IT Service Responsive Html Theme</title>
+
+    <title> {% block title %}{% endblock %} - Học Viện Đào Tạo</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -86,10 +87,9 @@
                     </div>
                     <div class="float-right">
                         <div class="make_appo">
-                            <a class="btn white_btn " href="/">
-                                <span class="topbar-hightlight">
-                                    <i class="fa fa-windows"></i> Đăng nhập
-                                </span>
+                            <a class="btn white_btn" href="/" style="padding: 0 !important;">
+                                <i class="fa fa-user" style="margin-right: 10px"></i>
+                                <span class="topbar-hightlight">ĐĂNG NHẬP</span>
                             </a>
                         </div>
                     </div>
@@ -105,8 +105,8 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                     <!-- logo start -->
                     <div class="logo">
-                        <a href="it_home.html">
-                            <img src="{% static 'frontend/images/logos/it_logo.png' %}" alt="logo"/>
+                        <a href="{% url 'frontend:index' %}">
+                            <img src="{% static 'logo.png' %}" alt="logo"/>
                         </a>
                     </div>
                     <!-- logo end -->
@@ -117,38 +117,38 @@
                         <div id="navbar_menu">
                             <ul class="first-ul">
                                 <li>
-                                    <a class="active" href="it_home.html">TRANG CHỦ</a>
+                                    <a class="active" href="{% url 'frontend:index' %}">TRANG CHỦ</a>
                                 </li>
                                 <li>
-                                    <a href="it_about.html">GIỚI THIỆU</a>
+                                    <a href="{% url 'frontend:about' %}">GIỚI THIỆU</a>
                                 </li>
                                 <li>
-                                    <a href="it_service.blade.php">HỌC ONLINE</a>
-                                    <ul>
-                                        <li><a href="service/service_list.blade.php">Services list</a></li>
-                                        <li><a href="service/service_detail.blade.php">Services Detail</a></li>
-                                    </ul>
+                                    <a href="{% url 'frontend:online-learning' %}">HỌC ONLINE</a>
                                 </li>
-                                <li><a href="it_contact.html">LỚP HỌC</a>
+                                <li><a href="{% url 'frontend:class' %}">LỚP HỌC</a>
                                     <ul>
-                                        <li><a href="it_contact.html">Contact Page 1</a></li>
-                                        <li><a href="it_contact_2.html">Contact Page 2</a></li>
+                                        <li><a href="it_contact.html">TIỂU HỌC</a></li>
+                                        <li><a href="it_contact.html">LỚP 6</a></li>
+                                        <li><a href="it_contact.html">LỚP 7</a></li>
+                                        <li><a href="it_contact.html">LỚP 8</a></li>
+                                        <li><a href="it_contact.html">LỚP 9</a></li>
+                                        <li><a href="it_contact.html">LỚP 10</a></li>
+                                        <li><a href="it_contact.html">LỚP 11</a></li>
+                                        <li><a href="it_contact.html">LỚP 12</a></li>
+                                        <li><a href="it_contact.html">ĐẠI HỌC</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="consulting/consulting.blade.php">BÀI GIẢNG</a>
-                                    <ul>
-                                        <li><a href="consulting/consulting.blade.php">Blog List</a></li>
-                                        <li><a href="it_blog_grid.html">Blog Grid</a></li>
-                                        <li><a href="consulting/consulting_detail.blade.php">Blog Detail</a></li>
-                                    </ul>
+                                    <a href="{% url 'frontend:lesson' %}">BÀI GIẢNG</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="search_icon">
                             <ul>
-                                <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search"
-                                                                                                 aria-hidden="true"></i></a>
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#search_bar">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -195,10 +195,7 @@
 <footer class="footer_style_2">
     <div class="container-fuild">
         <div class="row">
-            <div class="map_section">
-                <div id="map"></div>
-            </div>
-            <div class="footer_blog">
+            <div class="footer_blog" style="margin: 0 auto !important;">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="main-heading left_text">
@@ -220,13 +217,13 @@
                             <h2>Additional links</h2>
                         </div>
                         <ul class="footer-menu">
-                            <li><a href="it_about.html"><i class="fa fa-angle-right"></i> About us</a></li>
-                            <li><a href="it_term_condition.html"><i class="fa fa-angle-right"></i> Terms and conditions</a>
+                            <li><a href="{% url 'frontend:about' %}"><i class="fa fa-angle-right"></i> About us</a></li>
+                            <li><a href="/"><i class="fa fa-angle-right"></i> Terms and conditions</a>
                             </li>
-                            <li><a href="it_privacy_policy.html"><i class="fa fa-angle-right"></i> Privacy policy</a>
+                            <li><a href="/"><i class="fa fa-angle-right"></i> Privacy policy</a>
                             </li>
-                            <li><a href="it_news.html"><i class="fa fa-angle-right"></i> News</a></li>
-                            <li><a href="it_contact.html"><i class="fa fa-angle-right"></i> Contact us</a></li>
+                            <li><a href="/"><i class="fa fa-angle-right"></i> News</a></li>
+                            <li><a href="/"><i class="fa fa-angle-right"></i> Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">
@@ -234,14 +231,30 @@
                             <h2>Services</h2>
                         </div>
                         <ul class="footer-menu">
-                            <li><a href="it_data_recovery.html"><i class="fa fa-angle-right"></i> Data recovery</a></li>
-                            <li><a href="it_computer_repair.html"><i class="fa fa-angle-right"></i> Computer repair</a>
+                            <li>
+                                <a href="/">
+                                    <i class="fa fa-angle-right"></i> Data recovery
+                                </a>
                             </li>
-                            <li><a href="it_mobile_service.html"><i class="fa fa-angle-right"></i> Mobile service</a>
+                            <li>
+                                <a href="/">
+                                    <i class="fa fa-angle-right"></i> Computer repair
+                                </a>
                             </li>
-                            <li><a href="it_network_solution.html"><i class="fa fa-angle-right"></i> Network
-                                solutions</a></li>
-                            <li><a href="it_techn_support.html"><i class="fa fa-angle-right"></i> Technical support</a>
+                            <li>
+                                <a href="/">
+                                    <i class="fa fa-angle-right"></i> Mobile service
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <i class="fa fa-angle-right"></i> Network solutions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/">
+                                    <i class="fa fa-angle-right"></i> Technical support
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -252,22 +265,12 @@
                         <p>123 Second Street Fifth Avenue,<br>
                             Manhattan, New York<br>
                             <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-                        <div class="footer_mail-section">
-                            <form>
-                                <fieldset>
-                                    <div class="field">
-                                        <input placeholder="Email" type="text">
-                                        <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="cprt">
-                <p>ItNext © Copyrights 2019 Design by html.design</p>
+                <p> hocviendaotao.edu.vn © Copyrights <span class="year-now"></span></p>
             </div>
         </div>
     </div>
@@ -295,6 +298,11 @@
 <script src="{% static 'frontend/revolution/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
 <script src="{% static 'frontend/revolution/js/extensions/revolution.extension.video.min.js' %}"></script>
 <!-- map js -->
+<script>
+    $(document).ready(function () {
+        $('.year-now').html(new Date().getFullYear())
+    });
+</script>
 {% block javascript %}
 
 {% endblock %}
