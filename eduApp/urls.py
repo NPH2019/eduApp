@@ -22,8 +22,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('eduApp.frontend.urls')),
-    path('admin/', admin.site.urls),
-    path('dashboard/', include('eduApp.addons.urls')),
+    path('admin/', include('eduApp.backend.urls')),
 ]
 
 # Cấu hình Debug Toolbar Django
