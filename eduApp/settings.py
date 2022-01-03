@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eduApp.backend.account.apps.IndexConfig',
+    'eduApp.backend.account.apps.AccountConfig',
+    'eduApp.backend.study_program.apps.StudyProgramConfig',
     'eduApp.frontend.apps.IndexConfig',
     'graphene_django',
 ]
