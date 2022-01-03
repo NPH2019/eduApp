@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/gif"/>
     <title>{% block title %}{% endblock %} - Học Viện Đào Tạo</title>
     {% block css %}{% endblock %}
     <!-- Custom fonts for this template-->
@@ -38,12 +38,13 @@
         </a>
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="dashboard.html">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:dashboard' %}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tổng quan</span></a>
         </li>
-        {% block sidebar %}{% endblock %}
+        {% include 'partials/account-navigation.html' %}
+        {% include 'partials/program-navigation.html' %}
         <!-- Heading -->
         {#        <div class="sidebar-heading">#}
         {#            Chương trình học#}
