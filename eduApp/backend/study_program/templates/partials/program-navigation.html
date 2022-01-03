@@ -1,11 +1,26 @@
 {% load static %}
-<div class="sidebar-heading">
-    Chương trình học
-</div>
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+<li class="nav-item ">
     <a class="nav-link" href="{% url 'study-program:programme' %}">
         <i class="fas fa-fw fa-chart-area"></i>
-        <span>Chương trình học</span>
+        <span>Chương trình</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'study-program:class' %}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Lớp học</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'study-program:subject' %}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Môn học</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'study-program:lesson' %}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Bài giảng</span>
     </a>
 </li>
