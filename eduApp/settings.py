@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'eduApp.backend.account.apps.AccountConfig',
     'eduApp.backend.study_program.apps.StudyProgramConfig',
     'eduApp.frontend.apps.IndexConfig',
+    'django_celery_results',
+    'django_celery_beat',
     'graphene_django',
 ]
 
@@ -92,6 +94,36 @@ DATABASES = {
     }
 }
 
+GRAPHENE = {
+    'SCHEMA': 'erp.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+BROKER_URL = 'redis://127.0.0.1:6379/0'
+backend = 'redis://127.0.0.1:6379/0'
+result_backend = 'redis://127.0.0.1:6379/0'
+accept_content = ['application/json']
+task_serializer = 'json'
+result_serializer = 'json'
+# result_backend = 'django-cache'
+timezone = 'Asia/Ho_Chi_Minh'
+CELERY_ENABLE_UTC = True
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": 'redis://127.0.0.1:6379/0',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        }
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
