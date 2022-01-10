@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "backend/master.html" %}
+{% load static %}
+{% block title %} Tạo - chương trình học {% endblock %}
+{% block css %}
 
-</body>
-</html>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}
+{% block content %}
+    <div class="card o-hidden border-0 shadow">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-3">
+                        <div class="text-left">
+                            <h6 class="h4 text-primary-900 mb-4 text-primary">
+                                <a href="{% url 'study-program:class' %}">
+                                    <i class="fas fa-arrow-circle-left"></i> Lớp học
+                                </a>
+                                <span class="h4 text-gray-700 mb-4">/ Tạo </span>
+                            </h6>
+                        </div>
+                        <form method="post" action="{% url 'study-program:class-create' %}" enctype="multipart/form-data" class="parsley-form">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="class_name" class="mb-1">Tên lớp</label>
+                                    <input type="text" class="form-control form-control-range" id="class_name"
+                                           placeholder="Nhập tên lớp" name="class_name" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="class_code" class="mb-1">Tên viết tắc</label>
+                                    <input type="text" class="form-control form-control-range" id="class_code"
+                                           placeholder="Nhập tên viết tắt" name="class_code">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="class_program" class="mb-1">Thuộc chương trình</label>
+                                    <select type="text" class="form-control form-control-range" id="class_program"
+                                            name="class_program" required>
+                                    <option>--- Chọn chương trình ---</option>
+                                        {% for item in obj %}
+                                            <option value="{{ item.program_id }}">
+                                                {{ item.program_name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="class_detail" class="mb-1">Chi tiết</label>
+                                    <input class="form-control form-control-range" placeholder="Nhập thông tin lớp học"
+                                              name="class_detail" id="class_detail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="class_status" checked name="class_status">
+                                        <label class="custom-control-label mb-1" for="class_status">Còn hoạt động</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group text-right">
+                                <input type="submit" class="btn btn-primary btn-range col-1" value="Lưu"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "frontend/master.html" %}
+{% load static %}
+{% block title %} {% if program.class_code %}{{ program.class_code }}{% else %} {{ program.program_name }} {% endif %}{% endblock %}
+{% block css %}
+{% endblock %}
+{% block content %}
+    <div id="inner_banner" class="section inner_banner_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="title-holder">
+                            <div class="title-holder-cell text-left">
+                                <div class="main_heading text_align_center">
+                                    <h2 class="text-white">{{ program.program_name }}</h2>
+                                </div>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li><a href="{% url 'frontend:index' %}">Trang chủ</a></li>
+                                <li class="active">{{ program.program_name }}</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section padding_layout_1">
+        <div class="container">
+            <div class="row">
+                {% for item in obj %}
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <a href="#">
+                            <div class="full text_align_center margin_bottom_30">
+                                <div class="center">
+                                    <div class="icon"><img src="{% static 'frontend/learning.png' %}" alt="#"/></div>
+                                </div>
+                                <h4 class="theme_color">{{ item.class_name }}</h4>
+                                <p>{{ item.class_detail }}</p>
+                                <p>Xem chi tiết</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
