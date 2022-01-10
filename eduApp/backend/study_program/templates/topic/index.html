@@ -1,6 +1,6 @@
 {% extends "backend/master.html" %}
 {% load static %}
-{% block title %} Bài giảng {% endblock %}
+{% block title %} Môn học {% endblock %}
 {% block css %}
     <link href="{% static 'backend/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 {% endblock %}
@@ -8,8 +8,8 @@
 {% block content %}
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h4 class="text-primary-900 text-primary">Bài giảng
-                <a href="{% url 'study-program:lesson-create' %}"
+            <h4 class="text-primary-900 text-primary">Môn học
+                <a href="{% url 'study-program:topic-create' %}"
                    class="btn btn-primary btn-sm btn-icon-split float-right">
                     <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
                     <span class="text">Tạo</span>
@@ -21,14 +21,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="text-center">Loại</th>
-                        <th>Tên bài giảng</th>
+                        <th>Tên môn học</th>
                         <th>Tên viết tắt</th>
-                        <th>Thuộc môn</th>
-                        <th>Đánh giá</th>
-                        <th>Lượt xem</th>
-                        <th>Giới thiệu</th>
+                        <th>Thuộc lớp</th>
+                        <th>Chi tiết</th>
                         <th class="text-center">Ngày tạo</th>
+                        <th class="text-center">Ngày sửa</th>
                         <th class="text-center">Trạng thái</th>
                         <th class="text-center">Hành động</th>
                     </tr>
@@ -36,20 +34,14 @@
                     <tbody>
                     {% for item in obj %}
                         <tr>
+                            <td>{{ item.topic_name }}</td>
+                            <td>{{ item.topic_code }}</td>
+                            <td>{{ item.topic_class.class_name }}</td>
+                            <td>{{ item.topic_detail }}</td>
+                            <td class="text-center">{{ item.topic_created_at|date:"d/m/Y" }}</td>
+                            <td class="text-center">{{ item.topic_updated_at|date:"d/m/Y" }}</td>
                             <td class="text-center">
-                                {% if item.lesson_files %}
-                                    <img src="{% static 'video-marketing.png' %}" width="30px">
-                                {% endif %}
-                            </td>
-                            <td>{{ item.lesson_name }}</td>
-                            <td>{{ item.lesson_code }}</td>
-                            <td>{{ item.lesson_topic.topic_name }}</td>
-                            <td>{{ item.lesson_evaluate }}</td>
-                            <td>{{ item.lesson_view }}</td>
-                            <td>{{ item.lesson_detail }}</td>
-                            <td class="text-center">{{ item.lesson_created_at|date:"d/m/Y" }}</td>
-                            <td class="text-center">
-                                {% if item.lesson_status == True %}
+                                {% if item.topic_status == True %}
                                     <button class="btn btn-success btn-circle btn-sm">
                                         <i class="fas fa-check"></i>
                                     </button>

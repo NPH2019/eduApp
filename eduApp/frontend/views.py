@@ -1,11 +1,25 @@
 from django.shortcuts import render
+from eduApp.backend.study_program.models import Program, Class
 from django.views.decorators.http import require_http_methods
 
 
 @require_http_methods(["GET"])
 def index(request):
     if request.method == 'GET':
-        return render(request, 'index.html')
+        obj = Program.objects.filter(program_status=True)
+        return render(request, 'index.html', {'obj': obj})
+
+
+@require_http_methods(["GET"])
+def detail_class(request, program_id):
+    if request.method == 'GET':
+        program = Program.objects.get(program_id=program_id)
+        obj = Class.objects.filter(class_program_id=program_id)
+        return render(request, 'detail_class.html', {
+            'obj': obj,
+            'program': program,
+            'program_id': program_id
+        })
 
 
 @require_http_methods(["GET"])
