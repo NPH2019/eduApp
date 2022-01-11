@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from eduApp.backend.study_program.models import Program, Class, Lesson, Topic
 from django.views.decorators.http import require_http_methods
+from eduApp.backend.about_us.models import About
 
 
 @require_http_methods(["GET"])
@@ -14,7 +15,9 @@ def index(request):
 @require_http_methods(["GET"])
 def about(request):
     if request.method == 'GET':
-        return render(request, 'about.html')
+      about_data = About.objects.filter(about_status=True)
+        return render(request, 'about.html', {
+            'about_data': about_data
 
 
 @require_http_methods(["GET"])

@@ -4,7 +4,13 @@
 {% block css %}
 {% endblock %}
 {% block content %}
-
+<div class="container">
+{% for about_data in about_data %}
+    <div class="card-body">
+        {{ about_data.about_description|safe }}
+    </div>
+{% endfor %}
+</div>
 {% endblock %}
 
 {% block javascript %}

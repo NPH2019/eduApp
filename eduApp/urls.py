@@ -21,12 +21,16 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
+from eduApp.backend.account import views
 
 urlpatterns = [
     path('', include('eduApp.frontend.urls')),
-    path('admin/', include('eduApp.backend.account.urls')),
     path('study-program/', include('eduApp.backend.study_program.urls')),
     path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path('account/login', views.signin, name='login'),
+    path('logout', views.signout, name='logout'),
+    path('admin/', include('eduApp.backend.account.urls')),
+    path('about_us/', include('eduApp.backend.about_us.urls')),
 ]
 
 # Cấu hình Debug Toolbar Django
