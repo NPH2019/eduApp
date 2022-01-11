@@ -1,0 +1,104 @@
+{% extends "frontend/master.html" %}
+{% load static %}
+{% block title %} {% if obj_topic.topic_code %}{{ obj_topic.topic_code }}{% else %} {{ obj_topic.topic_name }} {% endif %}{% endblock %}
+{% block css %}
+    <style>
+        .table tr td {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="inner_banner" class="section inner_banner_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="title-holder">
+                            <div class="title-holder-cell text-left">
+                                <div class="main_heading text_align_center">
+                                    <h2 class="text-white">{{ obj_topic.topic_name }}</h2>
+                                </div>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li><a href="{% url 'frontend:index' %}">Trang chủ</a></li>
+                                <li><a href="{% url 'frontend:program' obj_program.program_id %}">{{ obj_program.program_name }}</a></li>
+                                <li><a href="{% url 'frontend:class' obj_class.class_id %}">{{ obj_class.class_name }}</a></li>
+                                <li class="active">{{ obj_topic.topic_name }}</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section padding_layout_1">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive" style="margin-bottom: 20px;">
+                        <table class="table" style="min-width: 1000px">
+                            <tbody>
+                            {% for item in obj_lesson %}
+                                <tr>
+                                    <td class="t-td-bg text-center p-3 col-1">{{ item.stt }}</td>
+                                    <td class="t-td-bg">
+                                        <div class="t-logo-xs">
+                                            <a href="{% url 'frontend:lesson' item.lesson_id %}" class="ck_login" data-toggle="">
+                                                <img src="{% static 'logo.png' %}" alt="" width="24">
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="t-td-bg col-5">
+                                        <div class="t-course" style="width: 320px;">
+                                            <div class="title ">
+                                                <a href="{% url 'frontend:lesson' item.lesson_id %}" class="text-primary">{{ item.lesson_name }}</a>
+                                            </div>
+                                            <div class="content d-flex flex-row align-items-center mt-1 ">
+                                                <div class="text mr-2">Đánh giá:</div>
+                                                <div class="starratin mr-2">
+                                                    <div class="center">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="view-box d-flex flex-row mr-2">
+                                                    <div class="text mr-2">Lượt xem:</div>
+                                                    <div class="view "><strong>0</strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center col-3">
+                                        <div class="t-video">
+                                            <div class="icon">
+                                                <a href="{% url 'frontend:lesson' item.lesson_id %}"><img src="{% static 'multimedia.png' %}" alt="" style="width: 50px !important;"> Xem bài giảng (1)</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center col-3">
+                                        <div class="t-down">
+                                            <div class="icon">
+                                                <a href="#"><img class="mr-2" style="width: 50px !important;" src="{% static 'cloud-computing.png' %}" alt="">Download tài liệu (0)</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}
