@@ -5,13 +5,16 @@ app_name = 'frontend'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('class/<int:program_id>', views.detail_class, name='detail-class'),
     path('about', views.about, name='about'),
     path('search', views.search, name='search'),
-    path('class', views.cls, name='class'),
-    path('lesson', views.lesson, name='lesson'),
     path('contact', views.contact, name='contact'),
+    path('class/<int:class_id>', views.cls, name='class'),
+    path('topic/<int:topic_id>', views.topic, name='topic'),
+    path('lesson/<int:lesson_id>', views.lesson, name='lesson'),
     path('login-client', views.login_client, name='login-client'),
+    path('program/<int:program_id>', views.program, name='program'),
     path('online-learning', views.learning, name='online-learning'),
     path('login-instructions', views.login_instructions, name='login-instructions'),
 ]
+
+

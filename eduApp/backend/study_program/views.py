@@ -85,10 +85,10 @@ def lesson_create(request):
                     lesson_status = True
             else:
                 lesson_status = False
-            if 'lesson_program' in request.POST:
-                lesson_program = request.POST['lesson_program']
-                if lesson_program != '':
-                    obj.lesson_class_id = lesson_program
+            if 'lesson_topic' in request.POST:
+                lesson_topic = request.POST['lesson_topic']
+                if lesson_topic != '':
+                    obj.lesson_topic_id = lesson_topic
 
             obj.lesson_name = lesson_name
             obj.lesson_files = lesson_files
