@@ -2,9 +2,108 @@
 {% load static %}
 {% block title %} Liên hệ  {% endblock %}
 {% block css %}
+    <style>
+        table tr {
+            padding: 5px;
+        }
+    </style>
 {% endblock %}
 {% block content %}
-
+    <div id="inner_banner" class="section inner_banner_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="title-holder">
+                            <div class="title-holder-cell text-left">
+                                <div class="main_heading text_align_center">
+                                    <h2 class="text-white">Liên hệ</h2>
+                                </div>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li><a href="{% url 'frontend:index' %}">Trang chủ</a></li>
+                                <li>Liên hệ</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section padding_layout_1">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="full">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="main_heading text_align_center">
+                <h2>CÔNG TY TNHH HỌC VIỆN ĐÀO TẠO VÀ XÚC TIẾN THƯƠNG MẠI VIỆT NAM</h2>
+              </div>
+            </div>
+            <div class="contact_information">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-map-marker" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h3>Trụ sở chính</h3>
+                    <p>13A, Kinh Vị Bình, Khu vực 2, Phường III, Thành phố Vị Thanh tỉnh Hậu Giang.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-home" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h4>Website</h4>
+                    <p>https://hocviendaotao.edu.vn</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
+                <div class="information_bottom text_align_center">
+                  <div class="icon_bottom"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                  <div class="info_cont">
+                    <h4>hocviendaotao.edu@gmail.com</h4>
+                    <p> hỗ trợ 24/7</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contant_form">
+              <h2 class="text_align_center">Liên hệ với chúng tôi</h2>
+              <div class="form_section">
+                <form class="form_contant" action="index.html">
+                  <fieldset>
+                  <div class="row">
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" placeholder="Họ tên khách hàng" type="text">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" placeholder="Địa chỉ liên lạc" type="text">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" placeholder="Điện thoại" type="email">
+                    </div>
+                    <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <input class="field_custom" placeholder="Email" type="text">
+                    </div>
+                    <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <textarea class="field_custom" placeholder="Lời nhắn"></textarea>
+                    </div>
+                    <div class="center"><a class="btn main_bt" href="#">Gửi đi</a></div>
+                  </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block javascript %}

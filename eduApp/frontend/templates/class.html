@@ -1,6 +1,6 @@
 {% extends "frontend/master.html" %}
 {% load static %}
-{% block title %} {% if obj_class.class_code %}{{ obj_class.class_code }}{% else %} {{ obj_class.program_name }} {% endif %}{% endblock %}
+{% block title %} {% if obj_class.class_code %}{{ obj_class.class_code }}{% else %} {{ obj_class.class_name }} {% endif %}{% endblock %}
 {% block css %}
 {% endblock %}
 {% block content %}
