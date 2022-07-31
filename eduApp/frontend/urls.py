@@ -6,6 +6,7 @@ app_name = 'frontend'
 urlpatterns = [
     path('', views.index, name='index'),
     path('about', views.about, name='about'),
+    path('sell_card', views.sell_card, name='sell_card'),
     path('search', views.search, name='search'),
     path('contact', views.contact, name='contact'),
     path('class/<int:class_id>', views.cls, name='class'),

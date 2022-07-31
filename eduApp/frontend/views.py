@@ -73,6 +73,12 @@ def learning(request):
 
 
 @require_http_methods(["GET"])
+def sell_card(request):
+    if request.method == 'GET':
+        return render(request, 'sell-card/card-product.html')
+
+
+@require_http_methods(["GET"])
 def lesson(request, lesson_id):
     if request.method == 'GET':
         obj_lesson = Lesson.objects.get(lesson_id=lesson_id)

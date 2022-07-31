@@ -1,4 +1,5 @@
 .DS_Store
 .idea/*
 eduApp/settings.py
-
+eduApp/__pycache__/*
+eduApp/backend/__pycache__/*
