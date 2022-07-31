@@ -4,14 +4,38 @@
 {% block css %}
 {% endblock %}
 {% block content %}
-<div class="container">
-{% for about_data in about_data %}
-    <div class="card-body">
-        {{ about_data.about_description|safe }}
+    <div id="inner_banner" class="section inner_banner_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="title-holder">
+                            <div class="title-holder-cell text-left">
+                                <div class="main_heading text_align_center">
+                                    <h2 class="text-white">Giới thiệu</h2>
+                                </div>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li><a href="{% url 'frontend:index' %}">Trang chủ</a></li>
+                                <li>Giới thiệu</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-{% endfor %}
-</div>
+    <div class="container">
+        {% for about_data in about_data %}
+            <div class="card-body">
+                {{ about_data.about_description|safe }}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block javascript %}
+    <script>
+        $('#about').addClass('active')
+    </script>
 {% endblock %}

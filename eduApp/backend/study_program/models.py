@@ -11,6 +11,7 @@ class Program(models.Model):
     program_updated_at = models.DateTimeField(auto_now=True)
     program_created_at = models.DateTimeField(auto_now_add=True)
     program_code = models.TextField(max_length=250, null=True, blank=True)
+    program_stt = models.TextField(max_length=250, null=True, blank=True)
     program_name = models.TextField(max_length=250, null=True, blank=True)
     program_detail = models.TextField(max_length=500, null=True, blank=True)
     program_status = models.BooleanField(null=True, blank=True, default=True)
@@ -55,17 +56,35 @@ class Lesson(models.Model):
         db_table = "lesson"
 
     lesson_id = models.BigAutoField(primary_key=True)
-    lesson_files = models.FileField(upload_to='media/lesson/')
+    lesson_files = models.FileField(upload_to='media/', max_length=500)
     lesson_updated_at = models.DateTimeField(auto_now=True)
     lesson_created_at = models.DateTimeField(auto_now_add=True)
     lesson_url = models.TextField(max_length=500, null=True, blank=True)
     lesson_view = models.TextField(max_length=10, null=True, blank=True)
-    lesson_code = models.TextField(max_length=250, null=True, blank=True)
-    lesson_name = models.TextField(max_length=250, null=True, blank=True)
+    lesson_code = models.TextField(max_length=500, null=True, blank=True)
+    lesson_name = models.TextField(max_length=500, null=True, blank=True)
     lesson_detail = models.TextField(max_length=500, null=True, blank=True)
     lesson_status = models.BooleanField(null=True, blank=True, default=True)
     lesson_evaluate = models.TextField(max_length=10, null=True, blank=True)
-    lesson_download = models.TextField(max_length=200, null=True, blank=True)
+    lesson_download = models.TextField(max_length=500, null=True, blank=True)
     lesson_topic = models.ForeignKey(Topic, related_name='Lesson_topic', on_delete=models.SET_NULL, null=True, blank=True)
     lesson_user_created = models.ForeignKey(User, related_name='Lesson_user_created', on_delete=models.SET_NULL, null=True, blank=True)
     lesson_user_updated = models.ForeignKey(User, related_name='Lesson_user_updated', on_delete=models.SET_NULL, null=True, blank=True)
+
+
+class UserClient(models.Model):
+    class Meta:
+        db_table = 'client'
+
+    client_id = models.BigAutoField(primary_key=True)
+    client_updated_at = models.DateTimeField(auto_now=True)
+    client_end_date = models.DateField(null=True, blank=True)
+    client_password = models.TextField(null=False, blank=True)
+    client_start_date = models.DateField(null=True, blank=True)
+    client_created_at = models.DateTimeField(auto_now_add=True)
+    client_mail = models.TextField(max_length=50, null=True, blank=True)
+    client_code = models.TextField(max_length=100, null=True, blank=True)
+    client_name = models.TextField(max_length=100, null=False, blank=True)
+    client_status = models.BooleanField(null=True, blank=True, default=True)
+    client_user_created = models.ForeignKey(User, related_name='Client_user_created', on_delete=models.SET_NULL, null=True, blank=True)
+    client_user_updated = models.ForeignKey(User, related_name='Client_user_updated', on_delete=models.SET_NULL, null=True, blank=True)

@@ -13,6 +13,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import psycopg2
+from werkzeug.contrib.cache import RedisCache
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-a)4!_)6^$#6$-6p2=e(#^4y-h46jdt^8w5ce^e$k25r@&z_oht
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.6']
+ALLOWED_HOSTS = ['educard.vn', 'www.educard.vn', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -74,7 +75,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'eduApp.wsgi.application'
-ASGI_APPLICATION = 'eduApp.asgi.application'
+ASGI_APPLICATION = "erp.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -82,9 +83,9 @@ ASGI_APPLICATION = 'eduApp.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'edu-app',
+        'NAME': 'eduApp',
         'USER': 'postgres',
-        'PASSWORD': '1973',
+        'PASSWORD': '3003',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
@@ -132,13 +133,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 4,
+        }
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 LANGUAGE_CODE = 'vi-vn'
