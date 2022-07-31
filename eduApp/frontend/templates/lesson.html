@@ -33,140 +33,140 @@
             </div>
         </div>
     </div>
-    <div class="section padding_layout_1">
-    <div class="container">
-        <div class="card" style="margin-bottom: 50px;">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td class="t-td-bg">
-                                <div class="t-logo-xs">
-                                    <a href="#" class="ck_login" data-toggle="">
-                                        <img src="{% static 'logo.png' %}" alt="" width="24">
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="t-td-bg">
-                                <div class="t-course">
-                                    <div class="title">
-                                        <a href="#">{{ obj_lesson.lesson_name }}</a>
+    <div class="section padding_layout_1_small" style="">
+        <div class="container">
+            <div class="card" style="margin-bottom: 50px;">
+                <div class="card-body" style="padding: 0 !important;">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td class="t-td-bg">
+                                    <div class="t-logo-xs">
+                                        <a href="#" class="ck_login" data-toggle="">
+                                            <img src="{% static 'logo.png' %}" alt="" width="24">
+                                        </a>
                                     </div>
-                                    <div class="content d-flex flex-row align-items-center mt-1 ">
-                                        <div class="text mr-2">Đánh giá:</div>
-                                        <div class="starratin mr-2">
-                                            <div class="center">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </td>
+                                <td class="t-td-bg">
+                                    <div class="t-course">
+                                        <div class="title">
+                                            <a href="#">{{ obj_lesson.lesson_name }}</a>
+                                        </div>
+                                        <div class="content d-flex flex-row align-items-center mt-1 ">
+                                            <div class="text mr-2">Đánh giá:</div>
+                                            <div class="starratin mr-2">
+                                                <div class="center">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="view-box d-flex flex-row mr-2">
+                                                <div class="text mr-2">Lượt xem:</div>
+                                                <div class="view "><strong>0</strong></div>
                                             </div>
                                         </div>
-                                        <div class="view-box d-flex flex-row mr-2">
-                                            <div class="text mr-2">Lượt xem:</div>
-                                            <div class="view "><strong>0</strong></div>
-                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="t-video ">
-                                    <div class="icon">
-                                        <a href="#"><img src="{% static 'multimedia.png' %}" alt="" style="width: 50px !important;"> Xem bài giảng (1)</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="t-video ">
-                                    <div class="icon">
-                                        <a href="#"><img src="{% static 'note.png' %}" alt="" style="width: 50px !important;"> Thi trắc nghiệm</a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="t-down">
-                                    <div class="content d-flex flex-row align-items-center">
+                                </td>
+                                <td class="text-center">
+                                    <div class="t-video ">
                                         <div class="icon">
-                                            <a href="#"><img class="mr-2" style="width: 50px !important;" src="{% static 'cloud-computing.png' %}" alt="">Download tài liệu (0)</a>
+                                            <a href="#"><img src="{% static 'multimedia.png' %}" alt="" style="width: 50px !important;"> Xem bài giảng (1)</a>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table>
+                                </td>
+                                <td class="text-center">
+                                    <div class="t-video ">
+                                        <div class="icon">
+                                            <a href="#"><img src="{% static 'note.png' %}" alt="" style="width: 50px !important;"> Thi trắc nghiệm</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="t-down">
+                                        <div class="content d-flex flex-row align-items-center">
+                                            <div class="icon">
+                                                <a href="#"><img class="mr-2" style="width: 50px !important;" src="{% static 'cloud-computing.png' %}" alt="">Download tài liệu (0)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="card-footer">
-                <div class="wapper-video row">
-                    <div class="w-video-main col-md-7 col-sm-12">
-                        <video width="100%" controls="">
-                            <source src="{{ obj_lesson.lesson_files }}" type="video/mp4">
-                        </video>
-                        <div class="w-video-main-header">
-                            <div class="w-video-main-title">
-                                <h3></h3>
-                            </div>
-                            <div class="w-video-main-bottom">
-                                <div class="view">
-                                    Lượt xem: 39
-                                    <p><label style="color:#ff0000;">-1 key</label></p>
+                <div class="card-footer">
+                    <div class="wapper-video row">
+                        <div class="w-video-main col-md-7 col-sm-12">
+                            <video width="100%" controls="">
+                                <source src="/media/DÀNH%20CHO%20CỘNG%20ĐỒNG/KINH DOANH ONLINE/Bán Hàng Trên Facebook/Cách Gửi Tin Nhắn Hàng Loạt Bằng Facebook Cá Nhân.mp4" type="video/mp4">
+                            </video>
+                            <div class="w-video-main-header">
+                                <div class="w-video-main-title">
+                                    <h3></h3>
                                 </div>
+                                <div class="w-video-main-bottom">
+                                    <div class="view">
+                                        Lượt xem: 39
+                                        <p><label style="color:#ff0000;">-1 key</label></p>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="w-video-more col-md-5 col-sm-12">
-                        <div class="video-item-more row">
-                            <div class="table-responsive" style="margin-bottom: 20px;">
-                                <table class="table">
-                                    <tbody>
-                                    {% for i in new_lesson %}
-                                        <tr>
-                                            <td class="t-td-bg col-3 text-center">
-                                                <div class="t-logo-xs">
-                                                    <a href="{% url 'frontend:lesson' i.lesson_id %}" class="ck_login" data-toggle="">
-                                                        <img src="{% static 'multimedia.png' %}" alt="" style="width: 50px !important;">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td class="t-td-bg col-9">
-                                                <div class="t-course" style="width: 320px;">
-                                                    <div class="title ">
-                                                        <a href="{% url 'frontend:lesson' i.lesson_id %}" class="text-primary">{{ i.lesson_name }}</a>
+                        <div class="w-video-more col-md-5 col-sm-12">
+                            <div class="video-item-more row">
+                                <div class="table-responsive" style="margin-bottom: 20px;">
+                                    <table class="table">
+                                        <tbody>
+                                        {% for i in new_lesson %}
+                                            <tr>
+                                                <td class="t-td-bg col-3 text-center">
+                                                    <div class="t-logo-xs">
+                                                        <a href="{% url 'frontend:lesson' i.lesson_id %}" class="ck_login" data-toggle="">
+                                                            <img src="{% static 'multimedia.png' %}" alt="" style="width: 50px !important;">
+                                                        </a>
                                                     </div>
-                                                    <div class="content d-flex flex-row align-items-center mt-1 ">
-                                                        <div class="text mr-2">Đánh giá:</div>
-                                                        <div class="starratin mr-2">
-                                                            <div class="center">
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                </td>
+                                                <td class="t-td-bg col-9">
+                                                    <div class="t-course" style="width: 320px;">
+                                                        <div class="title ">
+                                                            <a href="{% url 'frontend:lesson' i.lesson_id %}" class="text-primary">{{ i.lesson_name }}</a>
+                                                        </div>
+                                                        <div class="content d-flex flex-row align-items-center mt-1 ">
+                                                            <div class="text mr-2">Đánh giá:</div>
+                                                            <div class="starratin mr-2">
+                                                                <div class="center">
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="view-box d-flex flex-row mr-2">
+                                                                <div class="text mr-2">Lượt xem:</div>
+                                                                <div class="view "><strong>0</strong></div>
                                                             </div>
                                                         </div>
-                                                        <div class="view-box d-flex flex-row mr-2">
-                                                            <div class="text mr-2">Lượt xem:</div>
-                                                            <div class="view "><strong>0</strong></div>
-                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock %}
