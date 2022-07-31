@@ -2,3 +2,6 @@
 .idea/*
 eduApp/settings.py
 
+*.pyc
+*.pyc
+*.py

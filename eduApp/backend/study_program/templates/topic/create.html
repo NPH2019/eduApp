@@ -45,7 +45,7 @@
                                     <option>--- Chọn lớp ---</option>
                                         {% for item in obj %}
                                             <option value="{{ item.class_id }}">
-                                                {{ item.class_name }}
+                                                {{ item.class_name }} | {{ item.class_program.program_name }}
                                             </option>
                                         {% endfor %}
                                     </select>
