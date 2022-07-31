@@ -45,7 +45,7 @@
                                     <option>--- Chọn môn ---</option>
                                         {% for item in obj %}
                                             <option value="{{ item.topic_id }}">
-                                                {{ item.topic_name }}
+                                                {{ item.topic_name }} | {{ item.topic_class.class_name }} | {{ item.topic_class.class_program.program_name }}
                                             </option>
                                         {% endfor %}
                                     </select>
@@ -60,7 +60,12 @@
                                 <div class="col-sm-6">
                                     <label for="lesson_files" class="mb-1">Video bài giảng</label>
                                     <input type="file" class="form-control form-control-range" id="lesson_files"
-                                            name="lesson_files" required>
+                                            name="lesson_files">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="lesson_url" class="mb-1">Link video</label>
+                                    <input type="text" class="form-control form-control-range" id="lesson_url"
+                                            name="lesson_url">
                                 </div>
                             </div>
                             <div class="form-group">

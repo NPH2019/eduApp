@@ -21,5 +21,9 @@ urlpatterns = [
     path('topic-create', views.topic_create, name='topic-create'),
     # create program
     path('program-create', views.program_create, name='program-create'),
+
+
+
+    path('client', views.client, name='client')
 ]
 
