@@ -2,6 +2,7 @@ from django.shortcuts import render
 from eduApp.backend.study_program.models import Program, Class, Lesson, Topic
 from django.views.decorators.http import require_http_methods
 from eduApp.backend.about_us.models import About
+from eduApp.backend.card.models import Card
 
 all_program = Program.objects.filter(program_status=True)
 
@@ -75,8 +76,19 @@ def topic(request, topic_id):
 @require_http_methods(["GET"])
 def learning(request):
     if request.method == 'GET':
-        return render(request, 'online-learning.html', {
-            'all_program': all_program})
+        obj_card = Card.objects.all()
+        return render(request, 'online-learning.html', {'obj_card': obj_card})
+
+
+@require_http_methods(["GET"])
+def learning_detail(request):
+    if request.method == 'GET':
+        return render(request, 'online-learning-detail.html')
+
+@require_http_methods(["GET"])
+def sell_card(request):
+    if request.method == 'GET':
+        return render(request, 'sell-card/card-product.html')
 
 
 @require_http_methods(["GET"])

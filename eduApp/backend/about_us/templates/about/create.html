@@ -10,7 +10,6 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         {% comment %}<h1 class="h3 mb-2 text-gray-800">Giới thiệu</h1>{% endcomment %}
-
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -44,7 +43,6 @@
         $(document).ready(function () {
             $(document).on('click', '#data-note', function (e) {
                 let textareaValue = $('#summernote').summernote('code');
-                console.log(textareaValue)
                 e.preventDefault();
                 $.ajax({
                     type: 'POST',

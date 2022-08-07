@@ -81,7 +81,8 @@
                     </div>
                     <div class="float-right">
                         <div class="make_appo">
-                            <a class="btn white_btn" href="{% url 'frontend:login-client' %}" style="padding: 0 !important;">
+                            <a class="btn white_btn" href="{% url 'frontend:login-client' %}"
+                               style="padding: 0 !important;">
                                 <i class="fa fa-user" style="margin-right: 10px"></i>
                                 <span class="topbar-hightlight">ĐĂNG NHẬP</span>
                             </a>
@@ -123,17 +124,22 @@
                                     <a id="class">LỚP HỌC</a>
                                     <ul>
                                         {% for item in all_program %}
-                                        <li><a href="{% url 'frontend:program' item.program_id %}">{{ item.program_name }}</a></li>
-{#                                        <li><a href="it_contact.html">LỚP 6</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 7</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 8</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 9</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 10</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 11</a></li>#}
-{#                                        <li><a href="it_contact.html">LỚP 12</a></li>#}
-{#                                        <li><a href="it_contact.html">ĐẠI HỌC</a></li>#}
+                                            <li>
+                                                <a href="{% url 'frontend:program' item.program_id %}">{{ item.program_name }}</a>
+                                            </li>
+                                            {#                                        <li><a href="it_contact.html">LỚP 6</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 7</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 8</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 9</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 10</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 11</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">LỚP 12</a></li>#}
+                                            {#                                        <li><a href="it_contact.html">ĐẠI HỌC</a></li>#}
                                         {% endfor %}
                                     </ul>
+                                </li>
+                                <li>
+                                    <a id="sell-card" href="{% url 'frontend:sell_card' %}">Card</a>
                                 </li>
                                 <li>
                                     <a id="service" href="{% url 'frontend:service' %}">Dịch vụ</a>
@@ -212,12 +218,14 @@
                                 <i class="fa fa-building fa-lg  mr-1" aria-hidden="true"></i>
                                 Mã số thuế: <br>
                                 <i class="fa fa-home fa-lg mr-1" aria-hidden="true"></i>https://educard.vn <br>
-                                <i class="fa fa-envelope fa-lg mr-1" aria-hidden="true"></i>hotro.educard.vn@gmail.com<br>
+                                <i class="fa fa-envelope fa-lg mr-1"
+                                   aria-hidden="true"></i>hotro.educard.vn@gmail.com<br>
                             </span>
                         </p>
                         <p>
                             <span>
-                                Đại diện theo pháp luật: <span class="text-warning">Đoàn Kim Hiệp</span>, Chức vụ: <span class="text-warning">Tổng Giám đốc</span> <br>
+                                Đại diện theo pháp luật: <span class="text-warning">Đoàn Kim Hiệp</span>, Chức vụ: <span
+                                    class="text-warning">Tổng Giám đốc</span> <br>
                                 Tài khoản: <span class="text-warning"></span> <br>
                                 Chủ tài khoản: CTCP PHÁT TRIỂN CÔNG NGHỆ GIÁO DỤC EDUCARD  <br>
                                 Hotline: <span class="text-warning">081.884.7777</span>
@@ -261,9 +269,11 @@
                             <h2>Ứng dụng</h2>
                         </div>
                         <ul class="social_icons">
-                            <li class="social-icon fb"><a href="#"><img src="{% static 'App1.png' %}" width="100%" alt=""></a>
+                            <li class="social-icon fb"><a href="#"><img src="{% static 'App1.png' %}" width="100%"
+                                                                        alt=""></a>
                             </li>
-                            <li class="social-icon tw"><a href="#"><img src="{% static 'App2.png' %}" width="100%" alt=""></a>
+                            <li class="social-icon tw"><a href="#"><img src="{% static 'App2.png' %}" width="100%"
+                                                                        alt=""></a>
                             </li>
                         </ul>
                     </div>
