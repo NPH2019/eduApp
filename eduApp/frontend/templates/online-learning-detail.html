@@ -1,0 +1,39 @@
+{% extends "frontend/master.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}  Thông tin thẻ học {% endblock %}
+{% block css %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img  style="height: 30%" src="{% static 'frontend/images/img_card.jpg' %}"
+                     alt="">
+                <h4>Hướng dẫn sử dụng</h4>
+                <ul style="line-height: 2; font-family: system-ui">
+                    <li>1. Truy cập vào trang web http://educard.vn/</li>
+                    <li>2. Nhập tên đăng nhập và mật khẩu, nhấn nút đăng nhập để hoàn tất.</li>
+                </ul>
+                <h4>Lưu ý</h4>
+                <ul style="line-height: 2; font-family: system-ui">
+                    <li>Đây là thẻ học VIP học 1 năm cho tất cả chương trình học.</li>
+                    <li>Bạn cần nhớ tên đăng nhập và mật khẩu mỗi khi vào web sử dụng.</li>
+                </ul>
+                <ul style="line-height: 2; font-family: system-ui" class="mt-4">
+                    <li><strong>Hỗ trợ kỹ thuật:</strong> <span  style="font-family: system-ui; color: #039ee3">0818.847.777</span></li>
+                    <li><strong>Email:</strong> <span style="font-family: system-ui; color: #039ee3">hotro.educard.vn@gmail.com</span></li>
+                </ul>
+                <div class="mt-2">
+                    <img style="height: 100px; width: 100px" src="{% static 'frontend/images/qrcode.png' %}"
+                     alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script>
+        $('#online-learning').addClass('active')
+    </script>
+{% endblock %}
