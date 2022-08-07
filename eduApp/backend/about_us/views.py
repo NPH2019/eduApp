@@ -9,7 +9,7 @@ from eduApp.backend.about_us.forms import AboutForm
 @require_http_methods(["GET", "POST"])
 def index(request):
     if request.method == 'GET':
-        return render(request, 'index_about.html')
+        return render(request, 'about/index.html')
 
 
 @login_required(login_url='login')
@@ -20,5 +20,5 @@ def create(request):
         about_data = request.POST.get("textareaValue", None)
         obj_about.about_description = about_data
         obj_about.save()
-    return render(request, 'create.html')
+    return render(request, 'about/create.html')
 

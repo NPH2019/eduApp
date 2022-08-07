@@ -31,6 +31,7 @@ urlpatterns = [
     path('logout', views.signout, name='logout'),
     path('admin/', include('eduApp.backend.account.urls')),
     path('about_us/', include('eduApp.backend.about_us.urls')),
+    path('card/', include('eduApp.backend.card.urls')),
 ]
 
 # Cấu hình Debug Toolbar Django

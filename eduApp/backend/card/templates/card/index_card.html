@@ -1,0 +1,55 @@
+{% extends "backend/master.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %} Card {% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        {% comment %}<h1 class="h3 mb-2 text-gray-800">Giới thiệu</h1>{% endcomment %}
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6>Danh sách card / <a href="{% url "card:create" %}" class="m-0 font-weight-bold text-primary">Thêm mới
+                </a></h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Tên card</th>
+                            <th>Giá card</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                         {% for item in obj_card %}
+                        <tr>
+                            <td><img style="width: 40%; height: auto" src="{{ item.card_image }}"></td>
+                            <td>{{ item.card_name }}</td>
+                            <td>{{ item.card_price|intcomma }}</td>
+                            <td>{{ item.card_updated_at|date:"d/m/Y" }}</td>
+                            <td style="text-align: center">
+                                <i class="fas fa-pencil-alt" style="margin-right: 10px"></i>
+                                <i class="fas fa-trash"></i>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

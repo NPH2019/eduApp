@@ -7,6 +7,8 @@ eduApp/backend/__pycache__/*
 
 
 *.pyc
-*.pyc
 *.py
 
+eduApp/backend/about_us/__pycache__/*
+eduApp/backend/about_us/__pycache__/views.cpython-310.pyc
+eduApp/frontend/__pycache__/*

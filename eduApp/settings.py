@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'eduApp.backend.account.apps.AccountConfig',
     'eduApp.backend.about_us.apps.AboutUsConfig',
+    'eduApp.backend.card.apps.CardConfig',
     'eduApp.backend.study_program.apps.StudyProgramConfig',
     'eduApp.frontend.apps.IndexConfig',
     'django_celery_results',
     'django_celery_beat',
     'graphene_django',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -83,9 +85,9 @@ ASGI_APPLICATION = "erp.asgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eduApp',
+        'NAME': 'edu-app',
         'USER': 'postgres',
-        'PASSWORD': '3003',
+        'PASSWORD': '1973',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
