@@ -32,6 +32,7 @@ urlpatterns = [
     path('admin/', include('eduApp.backend.account.urls')),
     path('about_us/', include('eduApp.backend.about_us.urls')),
     path('card/', include('eduApp.backend.card.urls')),
+    path('client/', include('eduApp.backend.client.urls')),
 ]
 
 # Cấu hình Debug Toolbar Django
