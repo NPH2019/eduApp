@@ -16,6 +16,63 @@
                 </a>
             </h4>
         </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Mã lô</th>
+                        <th>Email</th>
+                        <th>Ngày kích hoạt</th>
+                        <th>Ngày hết hạn</th>
+                        <th>Trạng thái thẻ</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in obj_client %}
+                        <tr>
+                            <td>{{ item.client_name }}</td>
+                            <td>{{ item.client_password }}</td>
+                            <td>{{ item.client_code }}</td>
+                            <td>
+                                {% if item.client_mail %}
+                                    {{ item.client_mail }}
+                                {% else %}
+                                    Chưa cập nhật
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.client_start_date %}
+                                    {{ item.client_start_date|date:"d/m/Y" }}
+                                {% else %}
+                                    Chưa cập nhật
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.client_end_date %}
+                                    {{ item.client_end_date|date:"d/m/Y" }}
+                                {% else %}
+                                    Chưa cập nhật
+                                {% endif %}
+                            </td>
+                            {% if item.client_status == True %}
+                                <td class="text-success">
+                                    Đã bán ra
+                                </td>
+                            {% else %}
+                                <td class="text-danger">
+                                    Chưa được bán
+                                </td>
+                            {% endif %}
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

@@ -15,7 +15,10 @@ from eduApp.backend.client.models import UserClient
 @require_http_methods(["GET", "POST"])
 def index(request):
     if request.method == 'GET':
-        return render(request, 'user_client/index.html')
+        obj_client = UserClient.objects.all()
+        return render(request, 'user_client/index.html', {
+            'obj_client': obj_client
+        })
 
 
 @login_required(login_url='login')
@@ -33,7 +36,7 @@ def create(request):
                     obj.client_code = request.POST['code']
                     obj.client_start_date = datetime.now()
                     obj.client_end_date = request.POST['end-date']
-                    obj.client_status = 1
+                    obj.client_status = 0
                     obj.save()
         return redirect('client:index-client')
 
