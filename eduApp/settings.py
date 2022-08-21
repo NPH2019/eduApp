@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a)4!_)6^$#6$-6p2=e(#^4y-h46jdt^8w5ce^e$k25r@&z_oht
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['educard.vn', 'www.educard.vn', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['educard.vn', 'www.educard.vn', 'localhost', '127.0.0.1', '192.168.1.6', '192.168.1.8']
 
 # Application definition
 
@@ -86,9 +86,9 @@ ASGI_APPLICATION = "erp.asgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eduApp',
+        'NAME': 'edu-app',
         'USER': 'postgres',
-        'PASSWORD': '3003',
+        'PASSWORD': '1973',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {
@@ -98,7 +98,7 @@ DATABASES = {
 }
 
 GRAPHENE = {
-    'SCHEMA': 'erp.schema.schema',
+    'SCHEMA': 'eduApp.schema.schema',
     'MIDDLEWARE': [
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ],
