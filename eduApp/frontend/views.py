@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect
 
 from eduApp.backend.client.models import UserClient
@@ -12,9 +13,19 @@ all_program = Program.objects.filter(program_status=True)
 @require_http_methods(["GET"])
 def index(request):
     if request.method == 'GET':
+        count_client = UserClient.objects.filter(client_status=True).count()
+        obj_lesson = Lesson.objects.filter(lesson_status=True)
         obj_program = Program.objects.filter(program_status=True).order_by('program_stt')
-        obj_lesson = Lesson.objects.filter(lesson_status=True).order_by('-lesson_id')[:12]
-        return render(request, 'index.html', {'obj_program': obj_program, 'all_program': all_program, 'obj_lesson': obj_lesson})
+        count_lesson = obj_lesson.count()
+        list_lesson = obj_lesson.order_by('-lesson_id')[:12]
+        return render(request, 'index.html',
+                      {
+                          'obj_lesson': list_lesson,
+                          'obj_program': obj_program,
+                          'all_program': all_program,
+                          'count_lesson': count_lesson,
+                          'count_client': count_client
+                      })
 
 
 @require_http_methods(["GET"])
@@ -87,6 +98,7 @@ def learning_detail(request):
     if request.method == 'GET':
         return render(request, 'online-learning-detail.html')
 
+
 @require_http_methods(["GET"])
 def sell_card(request):
     if request.method == 'GET':
@@ -120,10 +132,54 @@ def login_client(request):
         password = request.POST.get('password')
         client = UserClient.objects.filter(client_name=username, client_password=password)
         if client.count() > 0:
-            return redirect('frontend:index')
+            first = client.first()
+            if first.client_status == 0:
+                first.client_status = 1
+                first.client_start_date = datetime.date.today()
+                first.client_end_date = datetime.date.today() + datetime.timedelta(days=365)
+                first.save()
+                request.session['user_id'] = first.client_id
+                request.session['username'] = first.client_name
+                return redirect('frontend:index')
+            else:
+                if first.client_end_date > datetime.date.today():
+                    request.session['user_id'] = first.client_id
+                    request.session['username'] = first.client_name
+                    return redirect('frontend:index')
         else:
-            return redirect('frontend:login-client')
+            return render(request, 'login-client.html', {
+                'error': 'Tên đang nhập hoặc mật khẩu không đúng'
+            })
+
     return render(request, 'login-client.html')
+
+
+@require_http_methods(["GET"])
+def logout_client(request):
+    if request.session.get('user_id') is not None:
+        del request.session['user_id']
+    if request.session.get('username') is not None:
+        del request.session['username']
+    return render(request, 'login-client.html', {'all_program': all_program})
+
+
+@require_http_methods(["GET", "POST"])
+def setting_client(request, client_id):
+    client = UserClient.objects.get(client_id=client_id)
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        client.client_mail = email
+        client.client_name = username
+        client.save()
+        request.session['username'] = username
+        return render(request, 'setting-client.html',
+                      {
+                          'status': 'Cập nhật thành công',
+                          'all_program': all_program,
+                          'client': client
+                      })
+    return render(request, 'setting-client.html', {'all_program': all_program, 'client': client})
 
 
 @require_http_methods(["GET"])

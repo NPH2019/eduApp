@@ -81,11 +81,20 @@
                     </div>
                     <div class="float-right">
                         <div class="make_appo">
-                            <a class="btn white_btn" href="{% url 'frontend:login-client' %}"
-                               style="padding: 0 !important;">
-                                <i class="fa fa-user" style="margin-right: 10px"></i>
-                                <span class="topbar-hightlight">ĐĂNG NHẬP</span>
-                            </a>
+                            {% if request.session.username %}
+                                <a class="btn white_btn" href="{% url 'frontend:setting-client' client_id=request.session.user_id %}"
+                                   style="padding: 0 !important;">
+                                    <i class="fa fa-user" style="margin-right: 10px"></i>
+                                    <span class="topbar-hightlight">Hi {{ request.session.username }}</span>
+                                </a>
+                            {% else %}
+                                <a class="btn white_btn" href="{% url 'frontend:login-client' %}"
+                                   style="padding: 0 !important;">
+                                    <i class="fa fa-user" style="margin-right: 10px"></i>
+                                    <span class="topbar-hightlight">ĐĂNG NHẬP</span>
+                                </a>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
@@ -127,23 +136,11 @@
                                             <li>
                                                 <a href="{% url 'frontend:program' item.program_id %}">{{ item.program_name }}</a>
                                             </li>
-                                            {#                                        <li><a href="it_contact.html">LỚP 6</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 7</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 8</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 9</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 10</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 11</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">LỚP 12</a></li>#}
-                                            {#                                        <li><a href="it_contact.html">ĐẠI HỌC</a></li>#}
                                         {% endfor %}
                                     </ul>
                                 </li>
-                                <li>
-                                    <a id="service" href="{% url 'frontend:service' %}">Dịch vụ</a>
-                                </li>
                             </ul>
                         </div>
-
                     </div>
                     <!-- menu end -->
                 </div>
@@ -156,34 +153,6 @@
 
 {% block content %}
 {% endblock %}
-<!-- Modal -->
-<div class="modal fade" id="search_bar" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-8 offset-lg-2 offset-md-2 offset-sm-2 col-xs-10 col-xs-offset-1">
-                        <div class="navbar-search">
-                            <form action="#" method="get" id="search-global-form" class="search-global">
-                                <input type="text" placeholder="Type to search" autocomplete="off" name="s" id="search"
-                                       value="" class="search-global__input">
-                                <button class="search-global__btn"><i class="fa fa-search"></i></button>
-                                <div class="search-global__note">Begin typing your search above and press return to
-                                    search.
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Model search bar -->
 <!-- footer -->
 <footer class="footer_style_2">
     <div class="container-fuild">
