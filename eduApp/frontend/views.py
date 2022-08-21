@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from eduApp.backend.client.models import UserClient
 from eduApp.backend.study_program.models import Program, Class, Lesson, Topic
 from django.views.decorators.http import require_http_methods
 from eduApp.backend.about_us.models import About
@@ -111,10 +113,17 @@ def lesson(request, lesson_id):
         })
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def login_client(request):
-    if request.method == 'GET':
-        return render(request, 'login-client.html')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        client = UserClient.objects.filter(client_name=username, client_password=password)
+        if client.count() > 0:
+            return redirect('frontend:index')
+        else:
+            return redirect('frontend:login-client')
+    return render(request, 'login-client.html')
 
 
 @require_http_methods(["GET"])
