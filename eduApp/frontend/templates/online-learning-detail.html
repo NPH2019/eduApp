@@ -8,7 +8,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img  style="height: 30%" src="{% static 'frontend/images/img_card.jpg' %}"
+                {% for item in obj_card %}
+                <img  style="height: 30%" src="{{ item.card_image }}"
                      alt="">
                 <h4>Hướng dẫn sử dụng</h4>
                 <ul style="line-height: 2; font-family: system-ui">
@@ -28,7 +29,32 @@
                     <img style="height: 100px; width: 100px" src="{% static 'frontend/images/qrcode.png' %}"
                      alt="">
                 </div>
+                {% endfor %}
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for item_all_card in obj_all_card %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all mt-3">
+                    <div class="product_list" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); min-height: 300px">
+                        <div class="product_img">
+                            <img class="img-responsive" src="{{ item_all_card.card_image }}" alt="">
+                        </div>
+                        <div class="product_detail_btm">
+                            <div class="center">
+                                <h4><a href="#">{{ item_all_card.card_name }}</a></h4>
+                            </div>
+                            <div class="center" style="font-family: system-ui">
+                                <h5><a href="#">{{ item_all_card.card_price|intcomma }}</a></h5>
+                            </div>
+                            <div class="center mt-4" style="font-family: system-ui">
+                                <h6><a style="color: #039ee3" href="{% url 'frontend:online-learning-detail' card_id=item_all_card.card_id %}">Chi tiết</a></h6>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

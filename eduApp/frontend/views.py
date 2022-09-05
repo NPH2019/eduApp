@@ -3,6 +3,7 @@ from eduApp.backend.study_program.models import Program, Class, Lesson, Topic
 from django.views.decorators.http import require_http_methods
 from eduApp.backend.about_us.models import About
 from eduApp.backend.card.models import Card
+from django.db.models import Q
 
 all_program = Program.objects.filter(program_status=True)
 
@@ -81,9 +82,16 @@ def learning(request):
 
 
 @require_http_methods(["GET"])
-def learning_detail(request):
+def learning_detail(request, card_id):
     if request.method == 'GET':
-        return render(request, 'online-learning-detail.html')
+        obj_card = Card.objects.filter(pk=card_id)
+        obj_all_card = Card.objects.filter(~Q(pk=card_id))
+        print(obj_all_card)
+        return render(request, 'online-learning-detail.html', {
+            'obj_card': obj_card,
+            'obj_all_card': obj_all_card
+        })
+
 
 @require_http_methods(["GET"])
 def sell_card(request):
