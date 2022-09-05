@@ -31,8 +31,8 @@
     </div>
     <div class="container">
         <div class="row">
+            {% for item in obj_card %}
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all mt-3">
-                {% for item in obj_card %}
                     <div class="product_list" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); min-height: 300px">
                         <div class="product_img">
                             <img class="img-responsive" src="{{ item.card_image }}" alt="">
@@ -45,28 +45,12 @@
                                 <h5><a href="#">{{ item.card_price|intcomma }}</a></h5>
                             </div>
                             <div class="center mt-4" style="font-family: system-ui">
-                                <h6><a style="color: #039ee3" href="{% url 'frontend:online-learning-detail' %}">Chi tiết</a></h6>
+                                <h6><a style="color: #039ee3" href="{% url 'frontend:online-learning-detail' card_id=item.card_id %}">Chi tiết</a></h6>
                             </div>
-                            {% comment %}<div class="text-center mt-3">
-                                <ul style="font-family: system-ui">
-                                    <li>Giá trị thẻ học: 12 tháng</li>
-                                    <li>Hỗ trợ kỹ thuật: 0818.847.777</li>
-                                    <li>Email: hotro.educard.vn@gmail.com</li>
-                                </ul>
-                            </div>{% endcomment %}
-
-                            {% comment %}<div class="row">
-                                <div class="col-6"><img class="img-responsive" src="{% static 'frontend/images/qrcode.png' %}" alt=""></div>
-                            </div>{% endcomment %}
-                            {% comment %}<div class="starratin">
-                                <div class="center mt-2">
-                                    <a href="#">Chi tiết</a>
-                                </div>
-                            </div>{% endcomment %}
                         </div>
                     </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
