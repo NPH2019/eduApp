@@ -309,16 +309,29 @@
             </div>
             <div class="row">
                 {% for item in obj_program %}
-                    <a href="{% url 'frontend:program' item.program_id %}" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="full text_align_center margin_bottom_30">
-                            <div class="center">
-                                <div class="icon"><img src="{% static 'frontend/online-course.png' %}" alt="#"/>
+                    {% if item.program_detail != null and item.program_detail != "" %}
+                        <a href="{{ item.program_detail }}" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="full text_align_center margin_bottom_30">
+                                <div class="center">
+                                    <div class="icon"><img src="{% static 'frontend/online-course.png' %}" alt="#"/>
+                                    </div>
                                 </div>
+                                <h4 class="theme_color">{{ item.program_name }}</h4>
+                                <p class="text-primary">Xem chi tiết</p>
                             </div>
-                            <h4 class="theme_color">{{ item.program_name }}</h4>
-                            <p class="text-primary">Xem chi tiết</p>
-                        </div>
-                    </a>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'frontend:program' item.program_id %}" class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="full text_align_center margin_bottom_30">
+                                <div class="center">
+                                    <div class="icon"><img src="{% static 'frontend/online-course.png' %}" alt="#"/>
+                                    </div>
+                                </div>
+                                <h4 class="theme_color">{{ item.program_name }}</h4>
+                                <p class="text-primary">Xem chi tiết</p>
+                            </div>
+                        </a>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -361,103 +374,103 @@
     </div>
     <!-- end section -->
     <!-- section -->
-{#    <div class="section padding_layout_1">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-md-12">#}
-{#                    <div class="full">#}
-{#                        <div class="main_heading text_align_center">#}
-{#                            <h2>GIẢNG VIÊN TIÊU BIỂU</h2>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
-{#                    <div class="product_list">#}
-{#                        <div class="product_img">#}
-{#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <div class="product_detail_btm">#}
-{#                            <div class="center">#}
-{#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
-{#                            </div>#}
-{#                            <div class="starratin">#}
-{#                                <div class="center">#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
-{#                    <div class="product_list">#}
-{#                        <div class="product_img">#}
-{#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <div class="product_detail_btm">#}
-{#                            <div class="center">#}
-{#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
-{#                            </div>#}
-{#                            <div class="starratin">#}
-{#                                <div class="center"><i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
-{#                    <div class="product_list">#}
-{#                        <div class="product_img">#}
-{#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <div class="product_detail_btm">#}
-{#                            <div class="center">#}
-{#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
-{#                            </div>#}
-{#                            <div class="starratin">#}
-{#                                <div class="center">#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
-{#                    <div class="product_list">#}
-{#                        <div class="product_img">#}
-{#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
-{#                        </div>#}
-{#                        <div class="product_detail_btm">#}
-{#                            <div class="center">#}
-{#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
-{#                            </div>#}
-{#                            <div class="starratin">#}
-{#                                <div class="center"><i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {#    <div class="section padding_layout_1">#}
+    {#        <div class="container">#}
+    {#            <div class="row">#}
+    {#                <div class="col-md-12">#}
+    {#                    <div class="full">#}
+    {#                        <div class="main_heading text_align_center">#}
+    {#                            <h2>GIẢNG VIÊN TIÊU BIỂU</h2>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="row">#}
+    {#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
+    {#                    <div class="product_list">#}
+    {#                        <div class="product_img">#}
+    {#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <div class="product_detail_btm">#}
+    {#                            <div class="center">#}
+    {#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
+    {#                            </div>#}
+    {#                            <div class="starratin">#}
+    {#                                <div class="center">#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
+    {#                    <div class="product_list">#}
+    {#                        <div class="product_img">#}
+    {#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <div class="product_detail_btm">#}
+    {#                            <div class="center">#}
+    {#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
+    {#                            </div>#}
+    {#                            <div class="starratin">#}
+    {#                                <div class="center"><i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
+    {#                    <div class="product_list">#}
+    {#                        <div class="product_img">#}
+    {#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <div class="product_detail_btm">#}
+    {#                            <div class="center">#}
+    {#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
+    {#                            </div>#}
+    {#                            <div class="starratin">#}
+    {#                                <div class="center">#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star-o" aria-hidden="true"></i>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">#}
+    {#                    <div class="product_list">#}
+    {#                        <div class="product_img">#}
+    {#                            <img class="img-responsive" src="{% static 'frontend/user.png' %}" alt="">#}
+    {#                        </div>#}
+    {#                        <div class="product_detail_btm">#}
+    {#                            <div class="center">#}
+    {#                                <h4><a href="product/product_detail.blade.php">Nguyễn Văn A</a></h4>#}
+    {#                            </div>#}
+    {#                            <div class="starratin">#}
+    {#                                <div class="center"><i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                    <i class="fa fa-star" aria-hidden="true"></i>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
     <!-- end section -->
     <!-- section -->
     <div class="section padding_layout_1 " style="background: #f8f8f8">

@@ -23,7 +23,5 @@ urlpatterns = [
     path('program-create', views.program_create, name='program-create'),
 
 
-
-    path('client', views.client, name='client')
 ]
 

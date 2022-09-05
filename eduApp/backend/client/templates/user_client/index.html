@@ -1,0 +1,28 @@
+{% extends "backend/master.html" %}
+{% load static %}
+{% block title %} Thẻ học {% endblock %}
+{% block css %}
+    <link href="{% static 'backend/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h4 class="text-primary-900 text-primary">Thẻ học và tài khoản
+                <a href="{% url 'client:create-client' %}"
+                   class="btn btn-primary btn-sm btn-icon-split float-right">
+                    <span class="icon text-white-50"><i class="fas fa-plus"></i></span>
+                    <span class="text">Tạo thẻ học</span>
+                </a>
+            </h4>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <!-- Page level plugins -->
+    <script src="{% static 'backend/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'backend/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'backend/js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
