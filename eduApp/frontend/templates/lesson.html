@@ -1,7 +1,9 @@
 {% extends "frontend/master.html" %}
 {% load static %}
-{% block title %} {% if obj_topic.topic_code %}{{ obj_topic.topic_code }}{% else %} {{ obj_topic.topic_name }} {% endif %}{% endblock %}
+{% block title %}
+    {% if obj_topic.topic_code %}{{ obj_topic.topic_code }}{% else %} {{ obj_topic.topic_name }} {% endif %}{% endblock %}
 {% block css %}
+    <link href="https://vjs.zencdn.net/7.20.2/video-js.css" rel="stylesheet"/>
     <style>
         .table tr td {
             display: table-cell;
@@ -103,10 +105,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <div class="wapper-video row">
-                            <div class="w-video-main col-md-7 col-sm-12">
-                                <video width="100%" controls="">
-                                    <source src="{{ obj_lesson.lesson_url }}" type="video/mp4">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <video id="my-video" class="video-js" controls preload="auto" width="640" height="300" data-setup="{}">
+                                    <source src="{{ obj_lesson.lesson_url }}" type="video/mp4"/>
                                 </video>
                                 <div class="w-video-main-header">
                                     <div class="w-video-main-title">
@@ -180,4 +182,5 @@
 {% endblock %}
 
 {% block javascript %}
+    <script src="https://vjs.zencdn.net/7.20.2/video.min.js"></script>
 {% endblock %}

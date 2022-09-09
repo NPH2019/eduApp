@@ -82,10 +82,10 @@
                     <div class="float-right">
                         <div class="make_appo">
                             {% if request.session.username %}
-                                <a class="btn white_btn" href="{% url 'frontend:setting-client' client_id=request.session.user_id %}"
+                                <a class="btn white_btn text-danger" href="{% url 'frontend:logout-client' %}"
                                    style="padding: 0 !important;">
                                     <i class="fa fa-user" style="margin-right: 10px"></i>
-                                    <span class="topbar-hightlight">Hi {{ request.session.username }}</span>
+                                    <span class="topbar-hightlight ">ĐĂNG XUẤT</span>
                                 </a>
                             {% else %}
                                 <a class="btn white_btn" href="{% url 'frontend:login-client' %}"
@@ -139,6 +139,28 @@
                                         {% endfor %}
                                     </ul>
                                 </li>
+                                {% if request.session.user_id %}
+                                    <li>
+                                        <a>Thông tin người <dùng></dùng></a>
+                                        <ul>
+                                            <li>
+                                                <a href="{% url 'frontend:setting-client' client_id=request.session.user_id %}">
+                                                    <span class="topbar-hightlight">Đổi thông tin người dùng</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'frontend:change-password' client_id=request.session.user_id %}">
+                                                    <span class="topbar-hightlight">Đổi mật khẩu</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'frontend:history' client_id=request.session.user_id %}">
+                                                    <span class="topbar-hightlight">Lịch sử học</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -238,8 +260,9 @@
                             <li class="social-icon fb"><a href="#"><img src="{% static 'App1.png' %}" width="100%"
                                                                         alt=""></a>
                             </li>
-                            <li class="social-icon tw"><a href="{% static 'frontend/android/app-release.apk' %}" download rel="noopener noreferrer" target="_blank"><img src="{% static 'App2.png' %}" width="100%"
-                                                                        alt=""></a>
+                            <li class="social-icon tw"><a href="{% static 'frontend/android/app-release.apk' %}" download rel="noopener noreferrer" target="_blank"><img src="{% static 'App2.png' %}"
+                                                                                                                                                                         width="100%"
+                                                                                                                                                                         alt=""></a>
                             </li>
                         </ul>
                     </div>

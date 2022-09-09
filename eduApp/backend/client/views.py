@@ -27,15 +27,13 @@ def create(request):
     if request.method == 'POST':
         forms = ClientCreateForm(request.POST)
         if forms.is_valid():
-            if request.POST['amount'] and request.POST['end-date']:
+            if request.POST['amount']:
                 max_row = request.POST['amount']
                 for row in range(1, int(max_row) + 1):
                     obj = UserClient()
                     obj.client_name = get_random_string(length=8)
                     obj.client_password = get_random_string(length=8)
                     obj.client_code = request.POST['code']
-                    obj.client_start_date = datetime.now()
-                    obj.client_end_date = request.POST['end-date']
                     obj.client_status = 0
                     obj.save()
         return redirect('client:index-client')
