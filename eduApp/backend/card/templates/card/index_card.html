@@ -36,8 +36,8 @@
                             <td>{{ item.card_price|intcomma }}</td>
                             <td>{{ item.card_updated_at|date:"d/m/Y" }}</td>
                             <td style="text-align: center">
-                                <i class="fas fa-pencil-alt" style="margin-right: 10px"></i>
-                                <i class="fas fa-trash"></i>
+                                {% comment %}<a href=""><i class="fas fa-pencil-alt" style="margin-right: 10px"></i></a>{% endcomment %}
+                                <a href="{% url 'card:card-delete' card_id=item.card_id %}"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                         {% endfor %}

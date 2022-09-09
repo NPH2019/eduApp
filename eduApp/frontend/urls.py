@@ -20,7 +20,7 @@ urlpatterns = [
     path('change-password/<int:client_id>', views.change_password, name='change-password'),
     path('program/<int:program_id>', views.program, name='program'),
     path('online-learning', views.learning, name='online-learning'),
-    path('online-learning-detail', views.learning_detail, name='online-learning-detail'),
+    path('online-learning-detail/<int:card_id>', views.learning_detail, name='online-learning-detail'),
     path('login-instructions', views.login_instructions, name='login-instructions'),
 ]
 
