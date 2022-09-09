@@ -1,0 +1,35 @@
+{% extends "frontend/master.html" %}
+{% load static %}
+{% block title %} Lịch sử học {% endblock %}
+{% block css %}
+{% endblock %}
+{% block content %}
+    <div class="card-body">
+        <div class="row mb-4">
+            <h3 class="m-auto">Lịch sử học hôm nay</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table" style="width: 100%; font-size: 18px">
+                    <thead>
+                    <tr>
+                        <th>Tên bài học</th>
+                        <th>Thời gian xem</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in obj %}
+                        <tr>
+                            <td>{{ item.history_name }}</td>
+                            <td>{{ item.history_created_at|date:"H:s d/m/Y" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

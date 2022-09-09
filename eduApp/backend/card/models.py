@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from eduApp.backend.client.models import UserClient
+
 
 class Card(models.Model):
     class Meta:
@@ -70,3 +72,18 @@ class Card(models.Model):
 #     cart_item_created_at = models.DateTimeField(auto_now_add=True)
 #     cart_item_updated_at = models.DateTimeField(auto_now=True)
 
+class History(models.Model):
+    class Meta:
+        db_table = "history"
+
+    history_id = models.AutoField(primary_key=True)
+    history_name = models.TextField(null=True, blank=True, default=True)
+    history_scores = models.FloatField(null=True, blank=True, default=True)
+    history_date = models.DateField(null=True, blank=True, default=True)
+    history_user = models.ForeignKey(UserClient, null=True, on_delete=models.CASCADE)
+    history_description = models.TextField(max_length=500, null=True, blank=True)
+    history_status = models.BooleanField(null=True, blank=True, default=True)
+    history_created_at = models.DateTimeField(auto_now_add=True)
+    history_updated_at = models.DateTimeField(auto_now=True)
+    history_user_created = models.ForeignKey(User, related_name='History_user_created', on_delete=models.SET_NULL, null=True, blank=True)
+    history_user_updated = models.ForeignKey(User, related_name='History_user_updated', on_delete=models.SET_NULL, null=True, blank=True)
