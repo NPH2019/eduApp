@@ -1,6 +1,6 @@
 {% extends "backend/master.html" %}
 {% load static %}
-{% block title %} Giới thiệu {% endblock %}
+{% block title %} Cập nhật {% endblock %}
 {% block css %}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     {% comment %}<link href="{% static 'backend/css/summernote/summernote-bs4.min.css' %}" rel="stylesheet" type="text/css">{% endcomment %}
@@ -45,7 +45,7 @@
                         <div class="col-6 justify-content-start">
                             <div class="card-image" style="position: relative">
                                 <img id="img-card" class="img-responsive"
-                                     src="{% static 'backend/images/images.png' %}" alt="">
+                                     src="{{update_form.card_image}}" alt="">
                                 <div class="centered">
                                     <a href="#" onclick="document.getElementById('photo').click()">Chọn hình ảnh</a>
                                     <input type="file" name="photo" id="photo" style="display: none"
@@ -57,14 +57,14 @@
 
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label for="{{ card_form.card_name.label.id_for_label }}"
-                                   class="mb-1">{{ card_form.card_name.label }}</label>
-                            {{ card_form.card_name }}
+                            <label for="{{ update_form.card_name.label.id_for_label }}"
+                                   class="mb-1">{{ update_form.card_name.label }}</label>
+                            {{ update_form.card_name }}
                         </div>
                         <div class="col-sm-6">
-                            <label for="{{ card_form.card_price.label.id_for_label }}"
-                                   class="mb-1">{{ card_form.card_price.label }}</label>
-                            {{ card_form.card_price }}
+                            <label for="{{ update_form.card_price.label.id_for_label }}"
+                                   class="mb-1">{{ update_form.card_price.label }}</label>
+                            {{ update_form.card_price }}
                         </div>
                     </div>
 
