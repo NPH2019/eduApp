@@ -9,34 +9,47 @@
         <div class="row">
             <div class="col-12">
                 {% for item in obj_card %}
-                <img  style="height: 30%" src="{{ item.card_image }}"
-                     alt="">
-                <h4>Hướng dẫn sử dụng</h4>
-                <ul style="line-height: 2; font-family: system-ui">
-                    <li>1. Truy cập vào trang web http://educard.vn/</li>
-                    <li>2. Nhập tên đăng nhập và mật khẩu, nhấn nút đăng nhập để hoàn tất.</li>
-                </ul>
-                <h4>Lưu ý</h4>
-                <ul style="line-height: 2; font-family: system-ui">
-                    <li>Đây là thẻ học VIP học 1 năm cho tất cả chương trình học.</li>
-                    <li>Bạn cần nhớ tên đăng nhập và mật khẩu mỗi khi vào web sử dụng.</li>
-                </ul>
-                <ul style="line-height: 2; font-family: system-ui" class="mt-4">
-                    <li><strong>Hỗ trợ kỹ thuật:</strong> <span  style="font-family: system-ui; color: #039ee3">0818.847.777</span></li>
-                    <li><strong>Email:</strong> <span style="font-family: system-ui; color: #039ee3">hotro.educard.vn@gmail.com</span></li>
-                </ul>
-                <div class="mt-2">
-                    <img style="height: 100px; width: 100px" src="{% static 'frontend/images/qrcode.png' %}"
-                     alt="">
-                </div>
+                    <img style="height: 30%" src="{{ item.card_image }}"
+                         alt="">
+                    {% if item.card_description %}
+                        <div class="row mt-2">
+                            <h4>Thông tin sản phẩm</h4>
+                        </div>
+                        <div class="row mt-3">
+                            {{ item.card_description }}
+                        </div>
+                    {% else %}
+                        <h4>Hướng dẫn sử dụng</h4>
+                        <ul style="line-height: 2; font-family: system-ui">
+                            <li>1. Truy cập vào trang web http://educard.vn/</li>
+                            <li>2. Nhập tên đăng nhập và mật khẩu, nhấn nút đăng nhập để hoàn tất.</li>
+                        </ul>
+                        <h4>Lưu ý</h4>
+                        <ul style="line-height: 2; font-family: system-ui">
+                            <li>Đây là thẻ học VIP học 1 năm cho tất cả chương trình học.</li>
+                            <li>Bạn cần nhớ tên đăng nhập và mật khẩu mỗi khi vào web sử dụng.</li>
+                        </ul>
+                        <ul style="line-height: 2; font-family: system-ui" class="mt-4">
+                            <li><strong>Hỗ trợ kỹ thuật:</strong> <span style="font-family: system-ui; color: #039ee3">0818.847.777</span></li>
+                            <li><strong>Email:</strong> <span style="font-family: system-ui; color: #039ee3">hotro.educard.vn@gmail.com</span></li>
+                        </ul>
+                        <div class="mt-2">
+                            <img style="height: 100px; width: 100px" src="{% static 'frontend/images/qrcode.png' %}"
+                                 alt="">
+                        </div>
+                    {% endif %}
+
                 {% endfor %}
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
+            <h5>Các sản phẩm khác</h5>
+        </div>
+        <div class="row">
             {% for item_all_card in obj_all_card %}
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all mt-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all mt-3">
                     <div class="product_list" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); min-height: 300px">
                         <div class="product_img">
                             <img class="img-responsive" src="{{ item_all_card.card_image }}" alt="">
@@ -53,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             {% endfor %}
         </div>
     </div>

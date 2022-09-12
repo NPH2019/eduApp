@@ -28,6 +28,7 @@ def create(request):
         obj_card = Card()
         card_name = request.POST['card_name']
         card_price = request.POST['card_price']
+        card_description = request.POST['card_description']
         card_photo = ''
         if len(request.FILES) != 0:
             photo = request.FILES.get('photo')
@@ -39,6 +40,7 @@ def create(request):
         obj_card.card_image = card_photo
         obj_card.card_name = card_name
         obj_card.card_price = card_price
+        obj_card.card_description = card_description
         obj_card.save()
         return redirect('card:index')
 
@@ -61,7 +63,6 @@ def card_update(request, card_id):
 
     else:
         pass
-
 
 
 @login_required(login_url='login')
