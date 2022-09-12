@@ -86,9 +86,9 @@ ASGI_APPLICATION = "erp.asgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'edu-app',
+        'NAME': 'eduApp',
         'USER': 'postgres',
-        'PASSWORD': '1973',
+        'PASSWORD': '3003',
         'HOST': 'localhost',
         'PORT': '5432',
         'OPTIONS': {

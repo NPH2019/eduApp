@@ -91,7 +91,9 @@ def topic(request, topic_id):
 def learning(request):
     if request.method == 'GET':
         obj_card = Card.objects.all()
-        return render(request, 'online-learning.html', {'obj_card': obj_card})
+        return render(request, 'online-learning.html', {
+            'obj_card': obj_card, 'all_program': all_program
+        })
 
 
 @require_http_methods(["GET"])
@@ -104,7 +106,6 @@ def learning_detail(request, card_id):
             'obj_card': obj_card,
             'obj_all_card': obj_all_card
         })
-
 
 
 @require_http_methods(["GET"])

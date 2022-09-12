@@ -43,6 +43,16 @@ class CardForm(forms.Form):
         )
     )
 
+    card_description = forms.CharField(
+        label='Thông tin sản phẩm', required=False,
+        help_text='Thông tin sản phẩm',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-control form-control-range',
+            }
+        )
+    )
+
 
 class CardUpdateForm(forms.Form):
 
