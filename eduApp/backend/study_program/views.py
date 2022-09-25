@@ -190,39 +190,3 @@ def program_create(request):
 
     return render(request, 'program/create.html')
 
-
-@login_required(login_url='login')
-@require_http_methods(["GET", "POST"])
-def client(request):
-    # wb_obj = openpyxl.load_workbook('media/1_tai_ve.xlsx')
-    # sheet_obj = wb_obj.active
-    # max_row = sheet_obj.max_row
-    # Lesson.objects.filter(lesson_topic_id=197).delete()
-    # a = Class()
-    # a.class_name = "Y Học"
-    # a.class_program_id = 5
-    # a.save()
-    # for row in range(1, max_row + 1):
-    #     ten_mon = sheet_obj.cell(row, 1).value
-    #     code = unidecode(ten_mon).replace(' ', '')
-    #     f = Topic.objects.filter(topic_code=code, topic_class_id=25).count()
-    #     if f > 0:
-    #         t = Topic.objects.get(topic_code=code, topic_class_id=25)
-    #         d = Lesson()
-    #         d.lesson_name = sheet_obj.cell(row, 2).value
-    #         d.lesson_url = sheet_obj.cell(row, 3).value
-    #         d.lesson_topic_id = t.topic_id
-    #         d.save()
-    #     else:
-    #         l = Topic()
-    #         l.topic_name = ten_mon
-    #         l.topic_code = code
-    #         l.topic_class_id = 25
-    #         l.save()
-    #         d = Lesson()
-    #         d.lesson_name = sheet_obj.cell(row, 2).value
-    #         d.lesson_url = sheet_obj.cell(row, 3).value
-    #         d.lesson_topic_id = l.topic_id
-    #         d.save()
-
-    return render(request, 'user_client/index.html')
