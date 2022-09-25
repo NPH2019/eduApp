@@ -3,6 +3,18 @@
 {% load humanize %}
 {% block title %}  Thông tin thẻ học {% endblock %}
 {% block css %}
+    <style>
+        .btn-group-custom {
+            margin-top: 2%;
+            margin-left: -14px;
+        }
+        .btn-group-custom button {
+            background-color: #039ee4;
+            border: none;
+            padding: 8px 16px;
+            color: #fff;
+        }
+    </style>
 {% endblock %}
 {% block content %}
     <div class="container">
@@ -30,17 +42,23 @@
                             <li>Bạn cần nhớ tên đăng nhập và mật khẩu mỗi khi vào web sử dụng.</li>
                         </ul>
                         <ul style="line-height: 2; font-family: system-ui" class="mt-4">
-                            <li><strong>Hỗ trợ kỹ thuật:</strong> <span style="font-family: system-ui; color: #039ee3">0818.847.777</span></li>
-                            <li><strong>Email:</strong> <span style="font-family: system-ui; color: #039ee3">hotro.educard.vn@gmail.com</span></li>
+                            <li><strong>Hỗ trợ kỹ thuật:</strong> <span style="font-family: system-ui; color: #039ee3">0818.847.777</span>
+                            </li>
+                            <li><strong>Email:</strong> <span style="font-family: system-ui; color: #039ee3">hotro.educard.vn@gmail.com</span>
+                            </li>
                         </ul>
                         <div class="mt-2">
                             <img style="height: 100px; width: 100px" src="{% static 'frontend/images/qrcode.png' %}"
                                  alt="">
                         </div>
                     {% endif %}
-
+                    <div class="btn-group-custom">
+                        <button type="button">{{ item.card_price|intcomma }}</button>
+                        <button class="ml-2" type="button">Đặt hàng</button>
+                    </div>
                 {% endfor %}
             </div>
+
         </div>
     </div>
     <div class="container">
@@ -62,7 +80,9 @@
                                 <h5><a href="#">{{ item_all_card.card_price|intcomma }}</a></h5>
                             </div>
                             <div class="center mt-4" style="font-family: system-ui">
-                                <h6><a style="color: #039ee3" href="{% url 'frontend:online-learning-detail' card_id=item_all_card.card_id %}">Chi tiết</a></h6>
+                                <h6><a style="color: #039ee3"
+                                       href="{% url 'frontend:online-learning-detail' card_id=item_all_card.card_id %}">Chi
+                                    tiết</a></h6>
                             </div>
                         </div>
                     </div>
