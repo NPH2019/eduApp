@@ -5,7 +5,8 @@ app_name = 'client'
 
 urlpatterns = [
     path('', views.index, name='index-client'),
-    path('create', views.create, name='create-client')
+    path('create', views.create, name='create-client'),
+    # path('tool', views.tool, name='create-tool')
 ]
 
 
